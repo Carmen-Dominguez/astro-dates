@@ -1,34 +1,55 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { DateTime } from 'luxon'
+import './styles/App.scss'
+import { getAstronomicalSign, getAstrologicalSign } from './utils/zodiacCalculations'
+
+interface Results {
+  astronomical: string;
+  astrological: string;
+  difference: boolean;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [inputDate, setInputDate] = useState<string>(DateTime.now().toISODate())
+  const [results, setResults] = useState<Results | null>(null)
+
+  const calculateDates = (): void => {
+    const date = DateTime.fromISO(inputDate)
+    
+    const astronomicalSign = getAstronomicalSign(date)
+    const astrologicalSign = getAstrologicalSign(date)
+
+    setResults({
+      astronomical: astronomicalSign,
+      astrological: astrologicalSign,
+      difference: astronomicalSign !== astrologicalSign
+    })
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container">
+      <h1>Astronomical vs Astrological Dates</h1>
+      <div className="input-section">
+        <input 
+          type="date" 
+          value={inputDate}
+          onChange={(e) => setInputDate(e.target.value)}
+        />
+        <button onClick={calculateDates}>Calculate</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      
+      {results && (
+        <div className="results">
+          <p>Astronomical Sign: {results.astronomical}</p>
+          <p>Astrological Sign: {results.astrological}</p>
+          {results.difference && (
+            <p className="difference">
+              The signs are different! This is due to precession of the equinoxes.
+            </p>
+          )}
+        </div>
+      )}
+    </div>
   )
 }
 
