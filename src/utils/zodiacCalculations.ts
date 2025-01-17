@@ -23,9 +23,60 @@ const astrologicalDates: ZodiacPeriod[] = [
     { sign: 'Pisces', startMonth: 2, startDay: 19, endMonth: 3, endDay: 20 }
 ]
 
+const astronomicalDates: ZodiacPeriod[] = [
+    { sign: 'Capricorn', startMonth: 1, startDay: 20, endMonth: 2, endDay: 16 },
+    { sign: 'Aquarius', startMonth: 2, startDay: 16, endMonth: 3, endDay: 11 },
+    { sign: 'Pisces', startMonth: 3, startDay: 11, endMonth: 4, endDay: 18 },
+    { sign: 'Aries', startMonth: 4, startDay: 18, endMonth: 5, endDay: 13 },
+    { sign: 'Taurus', startMonth: 5, startDay: 13, endMonth: 6, endDay: 21 },
+    { sign: 'Gemini', startMonth: 6, startDay: 21, endMonth: 7, endDay: 20 },
+    { sign: 'Cancer', startMonth: 7, startDay: 20, endMonth: 8, endDay: 10 },
+    { sign: 'Leo', startMonth: 8, startDay: 10, endMonth: 9, endDay: 16 },
+    { sign: 'Virgo', startMonth: 9, startDay: 16, endMonth: 10, endDay: 30 },
+    { sign: 'Libra', startMonth: 10, startDay: 30, endMonth: 11, endDay: 23 },
+    { sign: 'Scorpius', startMonth: 11, startDay: 23, endMonth: 11, endDay: 29 },
+    { sign: 'Ophiuchus', startMonth: 11, startDay: 29, endMonth: 12, endDay: 17 },
+    { sign: 'Sagittarius', startMonth: 12, startDay: 17, endMonth: 1, endDay: 20 }
+];
+
 export function getAstronomicalSign(date: DateTime): string {
-    // Placeholder for astronomical calculations
-    return getAstrologicalSign(date)
+    const month: number = date.month
+    const day: number = date.day
+
+    for (const period of astronomicalDates) {
+        // Handle year wrap-around for Sagittarius to Capricorn
+        if (period.sign === 'Sagittarius' || period.sign === 'Capricorn') {
+            if (
+                (month === 12 && day >= period.startDay) || 
+                (month === 1 && day <= period.endDay)
+            ) {
+                return period.sign
+            }
+            continue
+        }
+
+        // Handle same-month signs (like Scorpius and Ophiuchus in November)
+        if (period.startMonth === period.endMonth) {
+            if (
+                month === period.startMonth && 
+                day >= period.startDay && 
+                day <= period.endDay
+            ) {
+                return period.sign
+            }
+            continue
+        }
+
+        // Handle all other signs
+        if (
+            (month === period.startMonth && day >= period.startDay) ||
+            (month === period.endMonth && day <= period.endDay)
+        ) {
+            return period.sign
+        }
+    }
+
+    return 'Unknown'
 }
 
 export function getAstrologicalSign(date: DateTime): string {
