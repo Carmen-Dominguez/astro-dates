@@ -52,9 +52,9 @@ function App() {
               newSign={results.astronomical}
               isVisible={true}
             />
-            <p className="difference">
+            {results.difference && <p className="difference">
               The signs are different! This is due to precession of the equinoxes.
-            </p>
+            </p>}
           </>
         )}
         </div>
