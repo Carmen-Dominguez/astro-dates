@@ -1,0 +1,53 @@
+.constellation-container {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  
+    &.visible {
+      opacity: 1;
+    }
+  }
+  
+  .constellation-svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .constellation-star {
+    fill: white;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+    transition: cx 6s ease-in-out, cy 6s ease-in-out;
+  
+    &.antares {
+      fill: #d8a1a1;
+      filter: drop-shadow(0 0 3px rgba(241, 154, 154, 0.8));
+    }
+  
+    &.spica {
+      fill: #b3e0ff;
+      filter: drop-shadow(0 0 3px rgba(179, 224, 255, 0.8));
+    }
+  }
+  
+  .constellation-line {
+    stroke: rgba(255, 255, 255, 0.3);
+    stroke-width: 0.5;
+    transition: all 6s ease-in-out;
+    display: none;
+  }
+  
+  .star-label {
+    fill: rgba(255, 255, 255, 0.6);
+    font-size: 2px;
+    font-family: sans-serif;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .constellation-container:hover {
+    .star-label {
+      opacity: 1;
+    }
+  }

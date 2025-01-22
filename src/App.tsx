@@ -3,6 +3,7 @@ import { DateTime } from 'luxon'
 import './styles/App.scss'
 import NightSky from './components/nightSky'
 import { getAstronomicalSign, getAstrologicalSign } from './utils/zodiacCalculations'
+import Constellation from './components/constellation'
 
 interface Results {
   astronomical: string;
@@ -45,10 +46,17 @@ function App() {
           <p>Astronomical Sign: {results.astronomical}</p>
           <p>Astrological Sign: {results.astrological}</p>
           {results.difference && (
+          <>
+            <Constellation
+              newSign={results.astronomical}
+              currentSign={results.astrological}
+              isVisible={true}
+            />
             <p className="difference">
               The signs are different! This is due to precession of the equinoxes.
             </p>
-          )}
+          </>
+        )}
         </div>
       )}
     </div>
