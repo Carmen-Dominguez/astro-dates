@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getConstellationData } from '../utils/constellationData';
+import { getConstellationData, Point } from '../utils/constellationData';
 import '../styles/constellation.scss';
 
 interface ConstellationProps {
@@ -13,30 +13,47 @@ const Constellation: React.FC<ConstellationProps> = ({
   newSign, 
   isVisible 
 }) => {
-  // Add error checking for currentSign
-  const currentData = getConstellationData(currentSign) || {
-    points: [],
-    lines: []
-  };
-  
+  const currentData = getConstellationData(currentSign) || { points: [], lines: [] };
   const [currentPoints, setCurrentPoints] = useState(currentData.points);
-  
-  const getStarClassName = (name?: string) => {
-    if (name === 'Antares') return 'antares';
-    if (name === 'Spica') return 'spica';
-    return '';
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [showLines, setShowLines] = useState(true);
+  const [showStarColors, setShowStarColors] = useState(true);
+
+  const getStarColor = (point: Point) => {
+    return point.color || 'white';  // Default to white if no color specified
   };
 
-  // Handle morphing animation when newSign changes
   useEffect(() => {
     if (newSign && newSign !== currentSign) {
       const targetData = getConstellationData(newSign);
       if (targetData) {
-        const targetPoints = targetData.points;
+        // Start transition
+        setIsTransitioning(true);
+        setShowLines(false);
+        setShowStarColors(false);
+
+        // Animate stars to new positions
         const animation = requestAnimationFrame(() => {
-          setCurrentPoints(targetPoints);
+          setCurrentPoints(targetData.points);
         });
-        return () => cancelAnimationFrame(animation);
+
+        // After stars reach new positions
+        const colorTimeout = setTimeout(() => {
+          setShowStarColors(true);
+          
+          // Show lines after colors are set
+          const lineTimeout = setTimeout(() => {
+            setShowLines(true);
+            setIsTransitioning(false);
+          }, 800); // Delay for lines
+
+          return () => clearTimeout(lineTimeout);
+        }, 1000); // Delay for colors
+
+        return () => {
+          cancelAnimationFrame(animation);
+          clearTimeout(colorTimeout);
+        };
       }
     }
   }, [newSign, currentSign]);
@@ -50,12 +67,10 @@ const Constellation: React.FC<ConstellationProps> = ({
   return (
     <div className={`constellation-container ${isVisible ? 'visible' : ''}`}>
       <svg viewBox="0 0 100 100" className="constellation-svg">
-        {/* Draw lines with safety checks */}
-        {currentData.lines.map((line, i) => {
+        {/* Lines with fade in/out */}
+        {showLines && currentData.lines.map((line, i) => {
           const start = currentPoints[line[0]];
           const end = currentPoints[line[1]];
-          
-          // Skip drawing if points are undefined
           if (!start || !end) return null;
 
           return (
@@ -70,14 +85,17 @@ const Constellation: React.FC<ConstellationProps> = ({
           );
         })}
         
-        {/* Draw stars */}
+        {/* Stars */}
         {currentPoints.map((point, i) => (
           <g key={`star-${i}`}>
             <circle
               cx={point.x}
               cy={point.y}
               r={point.magnitude ? 3 - point.magnitude/2 : 1}
-              className={`constellation-star ${getStarClassName(point.name)}`}
+              className={`constellation-star ${isTransitioning ? 'transitioning' : ''}`}
+              style={{
+                fill: showStarColors ? getStarColor(point) : 'white'
+              }}
             />
             {point.name && (
               <text

@@ -16,9 +16,8 @@
   }
   
   .constellation-star {
-    fill: white;
+    transition: cx 1s ease-in-out, cy 1s ease-in-out, fill 0.8s ease-in-out;
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
-    transition: cx 6s ease-in-out, cy 6s ease-in-out;
   
     &.antares {
       fill: #d8a1a1;
@@ -29,13 +28,26 @@
       fill: #b3e0ff;
       filter: drop-shadow(0 0 3px rgba(179, 224, 255, 0.8));
     }
+  
+    &.transitioning {
+      filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.4));
+    }
   }
   
   .constellation-line {
     stroke: rgba(255, 255, 255, 0.3);
     stroke-width: 0.5;
-    transition: all 6s ease-in-out;
-    // display: none;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
   
   .star-label {
