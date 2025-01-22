@@ -48,8 +48,8 @@ function App() {
           {results.difference && (
           <>
             <Constellation
-              newSign={results.astronomical}
               currentSign={results.astrological}
+              newSign={results.astronomical}
               isVisible={true}
             />
             <p className="difference">
