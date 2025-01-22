@@ -45,7 +45,7 @@ function App() {
         <div className="results">
           <p>Astronomical Sign: {results.astronomical}</p>
           <p>Astrological Sign: {results.astrological}</p>
-          {results.difference && (
+          {results.astronomical.length > 0 && (
           <>
             <Constellation
               currentSign={results.astrological}
