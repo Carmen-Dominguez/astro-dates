@@ -1,3 +1,5 @@
+import { starColors } from './starColors';
+
 export interface Point {
     x: number;
     y: number;
@@ -11,20 +13,23 @@ interface ConstellationData {
     lines: number[][];
 }
 
+// Type for type safety
+export type StarColor = typeof starColors[keyof typeof starColors];
+
 export const constellations: Record<string, ConstellationData> = {
     Scorpio: {
         points: [
-            { x: 35, y: 20, name: "Pi Scorpii", magnitude: 2.89, color: '#b3f0ff' },    // Blue-white B2
-            { x: 25, y: 25, name: "Rho Scorpii", magnitude: 3.88, color: '#b3f0ff' },   // Blue-white B2
-            { x: 45, y: 25, name: "Beta Scorpii", magnitude: 2.62, color: '#b3f0ff' },  // Blue-white B0
-            { x: 40, y: 35, name: "Delta Scorpii", magnitude: 2.32, color: '#b3f0ff' }, // Blue-white B0
-            { x: 45, y: 45, name: "Antares", magnitude: 1.0, color: '#ff4d4d' },        // Red supergiant M1
-            { x: 50, y: 55, name: "Tau Scorpii", magnitude: 2.82, color: '#b3f0ff' },   // Blue-white B0
-            { x: 55, y: 65, name: "Epsilon Scorpii", magnitude: 2.29, color: '#fff7e6' }, // Yellow-white K2
-            { x: 65, y: 70, name: "Mu Scorpii", magnitude: 3.08, color: '#b3f0ff' },    // Blue-white B2
-            { x: 75, y: 72, name: "Zeta Scorpii", magnitude: 3.62, color: '#b3f0ff' },  // Blue-white B1
-            { x: 85, y: 68, name: "Eta Scorpii", magnitude: 3.33, color: '#ffd480' },   // Orange K3
-            { x: 90, y: 60, name: "Theta Scorpii", magnitude: 1.87, color: '#fff7e6' }  // Yellow-white F1
+            { x: 35, y: 20, name: "Pi Scorpii", magnitude: 2.89, color: starColors.blueWhite },
+            { x: 25, y: 25, name: "Rho Scorpii", magnitude: 3.88, color: starColors.blueWhite },
+            { x: 45, y: 25, name: "Beta Scorpii", magnitude: 2.62, color: starColors.blueWhite },
+            { x: 40, y: 35, name: "Delta Scorpii", magnitude: 2.32, color: starColors.blueWhite },
+            { x: 45, y: 45, name: "Antares", magnitude: 1.0, color: starColors.redGiant },
+            { x: 50, y: 55, name: "Tau Scorpii", magnitude: 2.82, color: starColors.blueWhite },
+            { x: 55, y: 65, name: "Epsilon Scorpii", magnitude: 2.29, color: starColors.yellowWhite },
+            { x: 65, y: 70, name: "Mu Scorpii", magnitude: 3.08, color: starColors.blueWhite },
+            { x: 75, y: 72, name: "Zeta Scorpii", magnitude: 3.62, color: starColors.blueWhite },
+            { x: 85, y: 68, name: "Eta Scorpii", magnitude: 3.33, color: starColors.orange },
+            { x: 90, y: 60, name: "Theta Scorpii", magnitude: 1.87, color: starColors.yellowWhite }
         ],
         lines: [
             [1, 3],  // Bottom claw to head
@@ -40,17 +45,17 @@ export const constellations: Record<string, ConstellationData> = {
     },
     Scorpius: {
         points: [
-            { x: 35, y: 20, name: "Pi Scorpii", magnitude: 2.89, color: '#b3f0ff' },        // Blue-white
-            { x: 25, y: 25, name: "Rho Scorpii", magnitude: 3.88, color: '#b3f0ff' },       // Blue-white
-            { x: 45, y: 25, name: "Beta Scorpii", magnitude: 2.62, color: '#b3f0ff' },      // Blue-white
-            { x: 40, y: 35, name: "Delta Scorpii", magnitude: 2.32, color: '#b3f0ff' },     // Blue-white
-            { x: 45, y: 45, name: "Antares", magnitude: 1.0, color: '#ff4d4d' },        // Red supergiant
-            { x: 50, y: 55, name: "Tau Scorpii", magnitude: 2.82, color: '#b3f0ff' },       // Blue-white
-            { x: 55, y: 65, name: "Epsilon Scorpii" },   // 6
-            { x: 65, y: 70, name: "Mu Scorpii" },        // 7
-            { x: 75, y: 72, name: "Zeta Scorpii" },      // 8
-            { x: 85, y: 68, name: "Eta Scorpii" },       // 9
-            { x: 90, y: 60, name: "Theta Scorpii" }      // 10
+            { x: 35, y: 20, name: "Pi Scorpii", magnitude: 2.89, color: starColors.blueWhite },
+            { x: 25, y: 25, name: "Rho Scorpii", magnitude: 3.88, color: starColors.blueWhite },
+            { x: 45, y: 25, name: "Beta Scorpii", magnitude: 2.62, color: starColors.blueWhite },
+            { x: 40, y: 35, name: "Delta Scorpii", magnitude: 2.32, color: starColors.blueWhite },
+            { x: 45, y: 45, name: "Antares", magnitude: 1.0, color: starColors.redGiant },
+            { x: 50, y: 55, name: "Tau Scorpii", magnitude: 2.82, color: starColors.blueWhite },
+            { x: 55, y: 65, name: "Epsilon Scorpii", magnitude: 2.29, color: starColors.yellowWhite },
+            { x: 65, y: 70, name: "Mu Scorpii", magnitude: 3.08, color: starColors.blueWhite },
+            { x: 75, y: 72, name: "Zeta Scorpii", magnitude: 3.62, color: starColors.blueWhite },
+            { x: 85, y: 68, name: "Eta Scorpii", magnitude: 3.33, color: starColors.orange },
+            { x: 90, y: 60, name: "Theta Scorpii", magnitude: 1.87, color: starColors.yellowWhite }
         ],
         lines: [
             [1, 3],  // Bottom claw to head
@@ -67,13 +72,13 @@ export const constellations: Record<string, ConstellationData> = {
 
     Virgo: {
         points: [
-            { x: 30, y: 20, name: "Vindemiatrix", magnitude: 2.85, color: '#fff7e6' }, // Yellow-white G8
-            { x: 45, y: 25, name: "Zaniah", magnitude: 3.89, color: '#f0f8ff' },       // White A2
-            { x: 55, y: 35, name: "Porrima", magnitude: 2.74, color: '#f0f8ff' },      // White F0
-            { x: 40, y: 45, name: "Auva", magnitude: 3.38, color: '#ffd480' },         // Orange giant K3
-            { x: 25, y: 55, name: "Spica", magnitude: 1.04, color: '#b3f0ff' },        // Blue-white B1
-            { x: 50, y: 50, name: "Heze", magnitude: 3.37, color: '#f0f8ff' },         // White A3
-            { x: 65, y: 40, name: "Beta Virginis", magnitude: 3.61, color: '#fff7e6' } // Yellow-white F8
+            { x: 30, y: 20, name: "Vindemiatrix", magnitude: 2.85, color: starColors.yellowWhite },
+            { x: 45, y: 25, name: "Zaniah", magnitude: 3.89, color: starColors.white },
+            { x: 55, y: 35, name: "Porrima", magnitude: 2.74, color: starColors.white },
+            { x: 40, y: 45, name: "Auva", magnitude: 3.38, color: starColors.orange },
+            { x: 25, y: 55, name: "Spica", magnitude: 1.04, color: starColors.blueWhite },
+            { x: 50, y: 50, name: "Heze", magnitude: 3.37, color: starColors.white },
+            { x: 65, y: 40, name: "Beta Virginis", magnitude: 3.61, color: starColors.yellowWhite }
         ],
         lines: [
             [0, 1],  // Head to shoulder
@@ -88,10 +93,10 @@ export const constellations: Record<string, ConstellationData> = {
 
     Libra: {
         points: [
-            { x: 30, y: 30, name: "Zubenelgenubi", magnitude: 2.75, color: '#f0f8ff' }, // White A3
-            { x: 45, y: 30, name: "Zubeneschamali", magnitude: 2.61, color: '#b3f0ff' }, // Blue-white B8
-            { x: 35, y: 45, name: "Zubenelakrab", magnitude: 3.91, color: '#fff7e6' },  // Yellow-white G8
-            { x: 40, y: 55, name: "Brachium", magnitude: 3.29, color: '#ffd480' }       // Orange K5
+            { x: 30, y: 30, name: "Zubenelgenubi", magnitude: 2.75, color: starColors.white },
+            { x: 45, y: 30, name: "Zubeneschamali", magnitude: 2.61, color: starColors.blueWhite },
+            { x: 35, y: 45, name: "Zubenelakrab", magnitude: 3.91, color: starColors.yellowWhite },
+            { x: 40, y: 55, name: "Brachium", magnitude: 3.29, color: starColors.orange }
         ],
         lines: [
             [0, 1], // Main balance beam
@@ -101,12 +106,12 @@ export const constellations: Record<string, ConstellationData> = {
 
     Leo: {
         points: [
-            { x: 25, y: 30, name: "Regulus", magnitude: 1.4, color: '#b3f0ff' },      // Blue-white B7
-            { x: 35, y: 25, name: "Algieba", magnitude: 2.01, color: '#ffa366' },     // Orange giant K1
-            { x: 45, y: 30, name: "Zosma", magnitude: 2.56, color: '#f0f8ff' },       // White A4
-            { x: 55, y: 35, name: "Denebola", magnitude: 2.14, color: '#f0f8ff' },    // White A3
-            { x: 30, y: 40, name: "Rasalas", magnitude: 3.85, color: '#ffd480' },     // Orange K1
-            { x: 20, y: 45, name: "Alterf", magnitude: 4.32, color: '#ffd480' }       // Orange K4
+            { x: 25, y: 30, name: "Regulus", magnitude: 1.4, color: starColors.blueWhite },
+            { x: 35, y: 25, name: "Algieba", magnitude: 2.01, color: starColors.orangeGiant },
+            { x: 45, y: 30, name: "Zosma", magnitude: 2.56, color: starColors.white },
+            { x: 55, y: 35, name: "Denebola", magnitude: 2.14, color: starColors.white },
+            { x: 30, y: 40, name: "Rasalas", magnitude: 3.85, color: starColors.orange },
+            { x: 20, y: 45, name: "Alterf", magnitude: 4.32, color: starColors.orange }
         ],
         lines: [
             [0, 1], // Head to mane
@@ -119,11 +124,11 @@ export const constellations: Record<string, ConstellationData> = {
 
     Taurus: {
         points: [
-            { x: 40, y: 25, name: "Aldebaran", magnitude: 0.87, color: '#ffa366' },   // Orange giant K5
-            { x: 30, y: 30, name: "Elnath", magnitude: 1.65, color: '#b3f0ff' },      // Blue-white B7
-            { x: 50, y: 30, name: "Alcyone", magnitude: 2.87, color: '#b3f0ff' },     // Blue-white B7
-            { x: 45, y: 35, name: "Lambda Tauri", magnitude: 3.47, color: '#b3f0ff' }, // Blue-white B3
-            { x: 35, y: 40, name: "Ain", magnitude: 3.53, color: '#ffd480' }          // Orange K3
+            { x: 40, y: 25, name: "Aldebaran", magnitude: 0.87, color: starColors.orangeGiant },
+            { x: 30, y: 30, name: "Elnath", magnitude: 1.65, color: starColors.blueWhite },
+            { x: 50, y: 30, name: "Alcyone", magnitude: 2.87, color: starColors.blueWhite },
+            { x: 45, y: 35, name: "Lambda Tauri", magnitude: 3.47, color: starColors.blueWhite },
+            { x: 35, y: 40, name: "Ain", magnitude: 3.53, color: starColors.orange }
         ],
         lines: [
             [0, 1], // Horn
@@ -135,11 +140,11 @@ export const constellations: Record<string, ConstellationData> = {
 
     Gemini: {
         points: [
-            { x: 30, y: 20, name: "Castor", magnitude: 1.58, color: '#f0f8ff' },      // White A1
-            { x: 30, y: 25, name: "Pollux", magnitude: 1.14, color: '#ffd480' },      // Orange giant K0
-            { x: 40, y: 35, name: "Alhena", magnitude: 1.93, color: '#f0f8ff' },      // White A0
-            { x: 45, y: 45, name: "Wasat", magnitude: 3.53, color: '#fff7e6' },       // Yellow-white F2
-            { x: 35, y: 55, name: "Mebsuta", magnitude: 3.06, color: '#fff7e6' }      // Yellow-white G8
+            { x: 30, y: 20, name: "Castor", magnitude: 1.58, color: starColors.white },
+            { x: 30, y: 25, name: "Pollux", magnitude: 1.14, color: starColors.orange },
+            { x: 40, y: 35, name: "Alhena", magnitude: 1.93, color: starColors.white },
+            { x: 45, y: 45, name: "Wasat", magnitude: 3.53, color: starColors.yellowWhite },
+            { x: 35, y: 55, name: "Mebsuta", magnitude: 3.06, color: starColors.yellowWhite }
         ],
         lines: [
             [0, 1], // Castor to Pollux
@@ -151,11 +156,11 @@ export const constellations: Record<string, ConstellationData> = {
 
     Cancer: {
         points: [
-            { x: 35, y: 30, name: "Acubens", magnitude: 4.25, color: '#f0f8ff' },     // White A5
-            { x: 45, y: 35, name: "Asellus Borealis", magnitude: 4.66, color: '#ffd480' }, // Orange K0
-            { x: 40, y: 40, name: "Asellus Australis", magnitude: 3.94, color: '#ffd480' }, // Orange K0
-            { x: 30, y: 45, name: "Altarf", magnitude: 3.53, color: '#ffa366' },      // Orange giant K4
-            { x: 50, y: 45, name: "Iota Cancri", magnitude: 4.02, color: '#fff7e6' }  // Yellow-white G8
+            { x: 35, y: 30, name: "Acubens", magnitude: 4.25, color: starColors.white },
+            { x: 45, y: 35, name: "Asellus Borealis", magnitude: 4.66, color: starColors.orange },
+            { x: 40, y: 40, name: "Asellus Australis", magnitude: 3.94, color: starColors.orange },
+            { x: 30, y: 45, name: "Altarf", magnitude: 3.53, color: starColors.orangeGiant },
+            { x: 50, y: 45, name: "Iota Cancri", magnitude: 4.02, color: starColors.yellowWhite }
         ],
         lines: [
             [0, 1], // Upper claw
@@ -181,12 +186,12 @@ export const constellations: Record<string, ConstellationData> = {
 
     Sagittarius: {
         points: [
-            { x: 35, y: 25, name: "Rukbat", magnitude: 3.96, color: '#b3f0ff' },      // Blue-white B8
-            { x: 45, y: 30, name: "Arkab", magnitude: 3.93, color: '#f0f8ff' },       // White A0
-            { x: 40, y: 35, name: "Alnasl", magnitude: 2.98, color: '#fff7e6' },      // Yellow-white G2
-            { x: 30, y: 40, name: "Kaus Media", magnitude: 2.70, color: '#ffd480' },  // Orange K2
-            { x: 25, y: 45, name: "Kaus Australis", magnitude: 1.79, color: '#b3f0ff' }, // Blue-white B9
-            { x: 50, y: 40, name: "Nunki", magnitude: 2.05, color: '#b3f0ff' }        // Blue-white B2
+            { x: 35, y: 25, name: "Rukbat", magnitude: 3.96, color: starColors.blueWhite },
+            { x: 45, y: 30, name: "Arkab", magnitude: 3.93, color: starColors.white },
+            { x: 40, y: 35, name: "Alnasl", magnitude: 2.98, color: starColors.yellowWhite },
+            { x: 30, y: 40, name: "Kaus Media", magnitude: 2.70, color: starColors.orange },
+            { x: 25, y: 45, name: "Kaus Australis", magnitude: 1.79, color: starColors.blueWhite },
+            { x: 50, y: 40, name: "Nunki", magnitude: 2.05, color: starColors.blueWhite }
         ],
         lines: [
             [0, 1], // Base of bow
@@ -198,11 +203,11 @@ export const constellations: Record<string, ConstellationData> = {
 
     Capricorn: {
         points: [
-            { x: 30, y: 30, name: "Algedi", magnitude: 3.58, color: '#fff7e6' },      // Yellow-white G3
-            { x: 40, y: 35, name: "Dabih", magnitude: 3.05, color: '#fff7e6' },       // Yellow-white F8
-            { x: 50, y: 40, name: "Nashira", magnitude: 3.69, color: '#f0f8ff' },     // White A0
-            { x: 45, y: 45, name: "Deneb Algedi", magnitude: 2.87, color: '#f0f8ff' }, // White A2
-            { x: 35, y: 50, name: "Omega Capricorni", magnitude: 4.11, color: '#ffd480' } // Orange K4
+            { x: 30, y: 30, name: "Algedi", magnitude: 3.58, color: starColors.yellowWhite },
+            { x: 40, y: 35, name: "Dabih", magnitude: 3.05, color: starColors.yellowWhite },
+            { x: 50, y: 40, name: "Nashira", magnitude: 3.69, color: starColors.white },
+            { x: 45, y: 45, name: "Deneb Algedi", magnitude: 2.87, color: starColors.white },
+            { x: 35, y: 50, name: "Omega Capricorni", magnitude: 4.11, color: starColors.orange }
         ],
         lines: [
             [0, 1], // Head
@@ -214,12 +219,12 @@ export const constellations: Record<string, ConstellationData> = {
 
     Aquarius: {
         points: [
-            { x: 25, y: 25, name: "Sadalmelik", magnitude: 2.95, color: '#fff7e6' },  // Yellow-white G2
-            { x: 35, y: 30, name: "Sadalsuud", magnitude: 2.90, color: '#fff7e6' },   // Yellow-white G0
-            { x: 45, y: 35, name: "Sadachbia", magnitude: 3.84, color: '#f0f8ff' },   // White A0
-            { x: 40, y: 45, name: "Skat", magnitude: 3.27, color: '#f0f8ff' },        // White A2
-            { x: 30, y: 50, name: "Albali", magnitude: 3.77, color: '#f0f8ff' },      // White A2
-            { x: 50, y: 50, name: "Ancha", magnitude: 4.16, color: '#fff7e6' }        // Yellow-white F8
+            { x: 25, y: 25, name: "Sadalmelik", magnitude: 2.95, color: starColors.yellowWhite },
+            { x: 35, y: 30, name: "Sadalsuud", magnitude: 2.90, color: starColors.yellowWhite },
+            { x: 45, y: 35, name: "Sadachbia", magnitude: 3.84, color: starColors.white },
+            { x: 40, y: 45, name: "Skat", magnitude: 3.27, color: starColors.white },
+            { x: 30, y: 50, name: "Albali", magnitude: 3.77, color: starColors.white },
+            { x: 50, y: 50, name: "Ancha", magnitude: 4.16, color: starColors.yellowWhite }
         ],
         lines: [
             [0, 1], // Upper stream
@@ -232,12 +237,12 @@ export const constellations: Record<string, ConstellationData> = {
 
     Pisces: {
         points: [
-            { x: 30, y: 30, name: "Alrescha", magnitude: 3.82, color: '#f0f8ff' },    // White A5
-            { x: 40, y: 35, name: "Fum al Samakah", magnitude: 4.94, color: '#b3f0ff' }, // Blue-white B8
-            { x: 50, y: 40, name: "Eta Piscium", magnitude: 3.62, color: '#fff7e6' }, // Yellow-white G7
-            { x: 35, y: 45, name: "Omega Piscium", magnitude: 4.0, color: '#f0f8ff' }, // White A2
-            { x: 45, y: 50, name: "Iota Piscium", magnitude: 4.13, color: '#f0f8ff' }, // White A7
-            { x: 25, y: 55, name: "Kullat Nunu", magnitude: 4.44, color: '#ffd480' }  // Orange K3
+            { x: 30, y: 30, name: "Alrescha", magnitude: 3.82, color: starColors.white },
+            { x: 40, y: 35, name: "Fum al Samakah", magnitude: 4.94, color: starColors.blueWhite },
+            { x: 50, y: 40, name: "Eta Piscium", magnitude: 3.62, color: starColors.yellowWhite },
+            { x: 35, y: 45, name: "Omega Piscium", magnitude: 4.0, color: starColors.white },
+            { x: 45, y: 50, name: "Iota Piscium", magnitude: 4.13, color: starColors.white },
+            { x: 25, y: 55, name: "Kullat Nunu", magnitude: 4.44, color: starColors.orange }
         ],
         lines: [
             [0, 1], // Western fish
@@ -250,17 +255,17 @@ export const constellations: Record<string, ConstellationData> = {
 
     Ophiuchus: {
         points: [
-            { x: 40, y: 20, name: "Rasalhague", magnitude: 2.08, color: '#f0f8ff' },    // White A5
-            { x: 35, y: 30, name: "Cebalrai", magnitude: 2.76, color: '#ffd480' },      // Orange K2
-            { x: 45, y: 30, name: "Yed Prior", magnitude: 2.73, color: '#ffd480' },     // Orange K2
-            { x: 48, y: 35, name: "Yed Posterior", magnitude: 3.27, color: '#ffd480' }, // Orange K0
-            { x: 40, y: 40, name: "Han", magnitude: 3.31, color: '#b3f0ff' },           // Blue-white B0
-            { x: 35, y: 50, name: "Sabik", magnitude: 2.43, color: '#f0f8ff' },         // White A2
-            { x: 45, y: 50, name: "Theta Ophiuchi", magnitude: 3.27, color: '#b3f0ff' }, // Blue-white B2
-            { x: 25, y: 35, name: "Unukalhai", magnitude: 2.63, color: '#ffd480' },     // Orange K2
-            { x: 30, y: 40, name: "Beta Serpentis", magnitude: 3.65, color: '#f0f8ff' }, // White A2
-            { x: 50, y: 45, name: "Eta Serpentis", magnitude: 3.26, color: '#ffd480' }, // Orange K0
-            { x: 55, y: 40, name: "Theta Serpentis", magnitude: 4.03, color: '#f0f8ff' } // White A5
+            { x: 40, y: 20, name: "Rasalhague", magnitude: 2.08, color: starColors.white },
+            { x: 35, y: 30, name: "Cebalrai", magnitude: 2.76, color: starColors.orange },
+            { x: 45, y: 30, name: "Yed Prior", magnitude: 2.73, color: starColors.orange },
+            { x: 48, y: 35, name: "Yed Posterior", magnitude: 3.27, color: starColors.orange },
+            { x: 40, y: 40, name: "Han", magnitude: 3.31, color: starColors.blueWhite },
+            { x: 35, y: 50, name: "Sabik", magnitude: 2.43, color: starColors.white },
+            { x: 45, y: 50, name: "Theta Ophiuchi", magnitude: 3.27, color: starColors.blueWhite },
+            { x: 25, y: 35, name: "Unukalhai", magnitude: 2.63, color: starColors.orange },
+            { x: 30, y: 40, name: "Beta Serpentis", magnitude: 3.65, color: starColors.white },
+            { x: 50, y: 45, name: "Eta Serpentis", magnitude: 3.26, color: starColors.orange },
+            { x: 55, y: 40, name: "Theta Serpentis", magnitude: 4.03, color: starColors.white }
         ],
         lines: [
             [0, 1],  // Head to right shoulder
