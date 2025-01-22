@@ -1,0 +1,109 @@
+$night: linear-gradient(to top, #283e51, #00001c);
+$starCount: 80;
+
+@mixin dimension {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+}
+
+// Function to generate random polarity for star positioning
+@function polarity() {
+    $value: random(2);
+
+    @if $value ==1 {
+        @return "-";
+    }
+
+    @return "";
+}
+
+// Function to generate star positions
+@function star-position($n) {
+    $value: "center center";
+
+    @for $i from 2 through $n {
+        $value: "#{$value}, #{polarity()}#{random(800)}px #{polarity()}#{random(800)}px";
+    }
+
+    @return unquote($value);
+}
+
+@function star-color() {
+    $colors: (
+        // Pure white
+        #ffffff,
+        rgba(255, 255, 255, 0.9),
+        // Light blue
+        rgba(168, 211, 225, 0.9),
+        // Very light red
+        rgba(226, 187, 187, 0.9),
+        // Warm white
+        rgba(255, 250, 244, 0.9) 
+    );
+@return nth($colors, random(length($colors)));
+}
+
+// Function to generate stars with different sizes and opacities
+@function star($n) {
+    $value: "radial-gradient(#{star-color()},rgba(255, 255, 255, 0.3) 2px,transparent 1px)";
+
+    @for $i from 2 through $n {
+        $value: "#{$value}, radial-gradient(#{star-color()},rgba(255, 255, 255, 0.#{random(4)}) #{random(4)}px,transparent #{random(15)}px)";
+    }
+
+    $value: "#{$value}, #{$night}";
+    @return unquote($value);
+}
+
+
+
+// Twinkling animation
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+.night-sky {
+    @include dimension();
+    background: $night;
+    position: relative;
+
+    &::before {
+        content: '';
+        @include dimension();
+        background-image: star($starCount);
+        background-position: star-position($starCount);
+        animation: twinkle 4s ease-in-out infinite;
+        z-index: 1;
+    }
+}
+
+// Optional: Add a slower twinkling layer for more depth
+.stars-layer-2 {
+    @include dimension();
+    background-image: star($starCount);
+    background-position: star-position($starCount);
+    animation: twinkle 6s ease-in-out infinite;
+    animation-delay: 1s;
+    z-index: 1;
+}
+
+.content-wrapper {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+}

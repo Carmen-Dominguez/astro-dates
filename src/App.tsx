@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { DateTime } from 'luxon'
 import './styles/App.scss'
+import NightSky from './components/nightSky'
 import { getAstronomicalSign, getAstrologicalSign } from './utils/zodiacCalculations'
 
 interface Results {
@@ -27,6 +28,7 @@ function App() {
   }
 
   return (
+    <NightSky>
     <div className="container">
       <h1>Astronomical vs Astrological Dates</h1>
       <div className="input-section">
@@ -50,6 +52,7 @@ function App() {
         </div>
       )}
     </div>
+    </NightSky>
   )
 }
 
