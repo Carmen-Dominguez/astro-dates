@@ -4,7 +4,7 @@ import './styles/App.scss'
 import NightSky from './components/nightSky'
 import { getAstronomicalSign, getAstrologicalSign } from './utils/zodiacCalculations'
 import Constellation from './components/constellation'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+// import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface Results {
   astronomical: string;
@@ -31,7 +31,6 @@ function App() {
 
   return (
     <NightSky>
-      <SpeedInsights/>
     <div className="container">
       <h1>Astronomical vs Astrological Dates</h1>
       <div className="input-section">
