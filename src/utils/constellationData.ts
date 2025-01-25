@@ -106,19 +106,21 @@ export const constellations: Record<string, ConstellationData> = {
 
     Leo: {
         points: [
-            { x: 25, y: 30, name: "Regulus", magnitude: 1.4, color: starColors.blueWhite },
-            { x: 35, y: 25, name: "Algieba", magnitude: 2.01, color: starColors.orangeGiant },
-            { x: 45, y: 30, name: "Zosma", magnitude: 2.56, color: starColors.white },
-            { x: 55, y: 35, name: "Denebola", magnitude: 2.14, color: starColors.white },
-            { x: 30, y: 40, name: "Rasalas", magnitude: 3.85, color: starColors.orange },
-            { x: 20, y: 45, name: "Alterf", magnitude: 4.32, color: starColors.orange }
+            { x: 75, y: 50, name: "Regulus", magnitude: 1.4, color: starColors.blueWhite },     // α (Alpha)
+            { x: 65, y: 55, name: "Algieba", magnitude: 2.01, color: starColors.orangeGiant },  // γ (Gamma)
+            { x: 60, y: 53, name: "Adhafera", magnitude: 3.43, color: starColors.white },       // ζ (Zeta)
+            { x: 55, y: 50, name: "Zosma", magnitude: 2.56, color: starColors.white },          // δ (Delta)
+            { x: 45, y: 45, name: "Denebola", magnitude: 2.14, color: starColors.white },       // β (Beta)
+            { x: 70, y: 40, name: "Rasalas", magnitude: 3.85, color: starColors.orange },       // μ (Mu)
+            { x: 58, y: 48, name: "Chertan", magnitude: 3.3, color: starColors.white },         // θ (Theta)
         ],
         lines: [
-            [0, 1], // Head to mane
-            [1, 2], // Mane to back
-            [2, 3], // Back to tail
-            [0, 4], // Head to chest
-            [4, 5]  // Chest to front leg
+            [0, 6],  // Regulus to Chertan
+            [6, 3],  // Chertan to Zosma
+            [3, 4],  // Zosma to Denebola
+            [6, 2],  // Chertan to Adhafera
+            [2, 1],  // Adhafera to Algieba
+            [1, 5]   // Algieba to Rasalas
         ]
     },
 
