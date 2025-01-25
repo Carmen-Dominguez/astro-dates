@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'SpaceAstronomy';
+  src: url('./SpaceAndAstronomy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 #root {
   // max-width: 1280px;
   // margin: 0 auto;
@@ -79,6 +86,7 @@ body {
   h1 {
     color: $text-accent;
     margin-bottom: 2rem;
+    font-family: 'SpaceAstronomy', sans-serif; 
   }
 }
 
