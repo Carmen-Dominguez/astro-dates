@@ -48,11 +48,13 @@ function App() {
           <p>Astrological Sign: {results.astrological}</p>
           {results.astronomical.length > 0 && (
           <>
-            <Constellation
-              currentSign={results.astrological}
-              newSign={results.astronomical}
-              isVisible={true}
-            />
+            <div className="constellation-wrapper">
+              <Constellation
+                currentSign={results.astrological}
+                newSign={results.astronomical}
+                isVisible={true}
+              />
+            </div>
             {results.difference && <p className="difference">
               The signs are different! This is due to precession of the equinoxes.
             </p>}
