@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { DateTime } from 'luxon'
 import './styles/App.scss'
 import NightSky from './components/nightSky'
-import { getAstronomicalSign, getAstrologicalSign } from './utils/zodiacCalculations'
+import { getAstronomicalSign, getAstrologicalSign, getComparison } from './utils/zodiacCalculations'
 import Constellation from './components/constellation'
 // import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -55,9 +55,9 @@ function App() {
                 isVisible={true}
               />
             </div>
-            {results.difference && <p className="difference">
-              The signs are different! This is due to precession of the equinoxes.
-            </p>}
+            <p className="difference">
+              {getComparison(results.astrological, results.astronomical)}
+            </p>
           </>
         )}
         </div>

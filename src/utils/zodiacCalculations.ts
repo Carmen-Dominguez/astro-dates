@@ -106,3 +106,17 @@ export function getAstrologicalSign(date: DateTime): string {
 
     return 'Unknown'
 }
+
+export interface SignComparison {
+    astrological: string;
+    astronomical: string;
+    explanation: string;
+}
+
+export function getComparison(astrological: string, astronomical: string): string {
+    if (astrological === astronomical) {
+        return `Your astrological and astronomical signs match! You were born when the Sun was actually in the constellation of ${astronomical}.`;
+    }
+
+    return `While you're traditionally considered a ${astrological}, astronomically the Sun was actually in the constellation of ${astronomical} when you were born. This difference is due to the precession of Earth's axis over thousands of years since the traditional zodiac was established.`;
+};
