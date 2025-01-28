@@ -188,12 +188,13 @@ export const constellations: Record<string, ConstellationData> = {
 
     Sagittarius: {
         points: [
-            { x: 35, y: 25, name: "Rukbat", magnitude: 3.96, color: starColors.blueWhite },
-            { x: 45, y: 30, name: "Arkab", magnitude: 3.93, color: starColors.white },
-            { x: 40, y: 35, name: "Alnasl", magnitude: 2.98, color: starColors.yellowWhite },
-            { x: 30, y: 40, name: "Kaus Media", magnitude: 2.70, color: starColors.orange },
-            { x: 25, y: 45, name: "Kaus Australis", magnitude: 1.79, color: starColors.blueWhite },
-            { x: 50, y: 40, name: "Nunki", magnitude: 2.05, color: starColors.blueWhite }
+            { x: 30, y: 45, name: "Rukbat", magnitude: 3.85, color: starColors.blueWhite },        // α
+            { x: 35, y: 40, name: "Arkab", magnitude: 3.96, color: starColors.blueWhite },         // β
+            { x: 45, y: 35, name: "Alnasl", magnitude: 3.0, color: starColors.white },             // γ
+            { x: 55, y: 40, name: "Kaus Media", magnitude: 2.7, color: starColors.blueWhite },     // δ
+            { x: 60, y: 45, name: "Kaus Australis", magnitude: 1.85, color: starColors.blueWhite }, // ε
+            { x: 50, y: 30, name: "Kaus Borealis", magnitude: 2.8, color: starColors.orange },     // λ
+            { x: 40, y: 45, name: "Nunki", magnitude: 2.05, color: starColors.blueWhite },         // σ
         ],
         lines: [
             [0, 1], // Base of bow
@@ -221,12 +222,12 @@ export const constellations: Record<string, ConstellationData> = {
 
     Aquarius: {
         points: [
-            { x: 25, y: 25, name: "Sadalmelik", magnitude: 2.95, color: starColors.yellowWhite },
-            { x: 35, y: 30, name: "Sadalsuud", magnitude: 2.90, color: starColors.yellowWhite },
-            { x: 45, y: 35, name: "Sadachbia", magnitude: 3.84, color: starColors.white },
-            { x: 40, y: 45, name: "Skat", magnitude: 3.27, color: starColors.white },
-            { x: 30, y: 50, name: "Albali", magnitude: 3.77, color: starColors.white },
-            { x: 50, y: 50, name: "Ancha", magnitude: 4.16, color: starColors.yellowWhite }
+            { x: 35, y: 45, name: "Sadalmelik", magnitude: 2.95, color: starColors.yellowWhite },   // α
+            { x: 45, y: 50, name: "Sadalsuud", magnitude: 2.90, color: starColors.yellowWhite },    // β
+            { x: 55, y: 45, name: "Sadachbia", magnitude: 3.84, color: starColors.white },          // γ
+            { x: 50, y: 40, name: "Skat", magnitude: 3.27, color: starColors.white },               // δ
+            { x: 40, y: 55, name: "Albali", magnitude: 3.77, color: starColors.white },             // ε
+            { x: 60, y: 50, name: "Eta Aquarii", magnitude: 4.02, color: starColors.white },        // η
         ],
         lines: [
             [0, 1], // Upper stream
