@@ -57,6 +57,7 @@ $navy: #00336634;
 $navy-light: #0055a4;
 $text-light: #ffffff;
 $text-accent: #b3dbfe;
+$text-highlight: #ffcc00;
 $glass-border: rgba(255, 255, 255, 0.2);
 $glass-shadow: rgba(0, 0, 0, 0.3);
 $glass-highlight: rgba(255, 255, 255, 0.1);
@@ -127,6 +128,7 @@ body {
   input[type="date"] {
     padding: 0.75rem;
     border: 2px solid $navy-light;
+    backdrop-filter: blur(4px);
     border-radius: 4px;
     background-color: $navy;
     color: $text-light;
@@ -164,7 +166,7 @@ body {
   p {
     margin: 0.5rem 0;
     font-size: 1.1rem;
-    color: #ffcc00;
+    color: $text-highlight;
   }
 
   // Glass highlight effect
@@ -195,8 +197,8 @@ body {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
-  .difference {
-    color: #ffcc00;
+  .difference, .personality-comparison {
+    color: $text-highlight;
     text-align: center;
     margin-top: 1rem;
     font-style: italic;
