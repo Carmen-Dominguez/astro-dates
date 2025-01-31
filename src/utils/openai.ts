@@ -13,7 +13,7 @@ export async function getPersonalityComparison(astrological: string, astronomica
                 {
                     role: "system",
                     content: `You are an expert in zodiac signs. 
-                    Provide direct, concise comparisons between signs without using introductory phrases like 'Sure!' or 'Certainly!'. 
+                    Provide direct, accurate, concise comparisons between signs without using introductory phrases like 'Sure!' or 'Certainly!'. 
                     Focus on element, personality traits and characteristics. 
                     Start with similarities then differences.`
                 },
