@@ -6,7 +6,6 @@ import { getAstronomicalSign, getAstrologicalSign, getComparison } from './utils
 import Constellation from './components/constellation'
 import { getPersonalityComparison, getDetailedComparison } from './utils/openai'
 import { sendEmail } from './utils/emailer'
-// import { postEmail } from './api/email'
 // import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface Results {
@@ -23,8 +22,13 @@ function App() {
   const [email, setEmail] = useState('');
   const [emailSending, setEmailSending] = useState(false);
   const [emailSent, setEmailSent] = useState(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
 
   const calculateDates = async () => {
+    setEmail('');
+    setEmailSent(false);
+    setEmailSending(false);
+
     const date = DateTime.fromISO(inputDate)
 
     const astronomical = getAstronomicalSign(date)
@@ -53,6 +57,7 @@ function App() {
 
   const handleSendEmail = async () => {
     setEmailSending(true);
+    setEmailError(null);
     const astrological = results?.astrological || '';
     const astronomical = results?.astronomical || '';
 
@@ -69,14 +74,13 @@ function App() {
 
       if (emailResponse.success) {
         setEmailSent(true);
-        setEmail(''); // Clear email input
+        setEmail('');
       } else {
         throw new Error('Failed to send email');
-        setEmailSending(false);
       }
     } catch (error) {
       console.error('Error sending email:', error);
-      // Optionally add error state and display to user
+      setEmailError('Unable to send email. Please try again later.');
     } finally {
       setEmailSending(false);
     }
@@ -142,6 +146,11 @@ function App() {
                         {emailSending ? 'Sending...' : emailSent ? 'Sent!' : 'Send Comparison'}
                       </button>
                     </div>
+                    {emailError && (
+                      <p className="email-error">
+                        {emailError}
+                      </p>
+                    )}
                     {emailSent && (
                       <p className="email-success">
                         ✨ Detailed comparison sent to your inbox! Check your email.

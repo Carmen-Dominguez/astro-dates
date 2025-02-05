@@ -1,6 +1,5 @@
 import emailjs from '@emailjs/browser';
 
-// Initialize EmailJS
 emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
 
 interface EmailDetails {

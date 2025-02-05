@@ -87,6 +87,7 @@ $glass-highlight: rgba(255, 255, 255, 0.1);
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -251,14 +252,26 @@ body {
     max-width: 600px;
     margin: 0 auto;
   }
-  
-  p.email-success {
+
+  .email-success,
+  .email-error {
     margin-top: 1rem;
     font-size: 0.75rem;
-    color: #fff;
     opacity: 0;
     animation: fadeIn 0.5s forwards;
   }
+
+  .email-success {
+    color: #fff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7),
+      0 0 16px rgba(255, 255, 255, 0.5),
+      0 0 24px rgba(255, 255, 255, 0.3);
+  }
+
+  .email-error {
+    color: #ff4d4d;
+    text-shadow: 0 0 8px rgba(255, 77, 77, 0.7),
+      0 0 16px rgba(255, 77, 77, 0.5),
+      0 0 24px rgba(255, 77, 77, 0.3);
+  }
 }
-
-
