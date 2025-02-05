@@ -99,6 +99,7 @@ body {
   background-color: $navy-dark;
   color: $text-light;
   font-family: system-ui, -apple-system, sans-serif;
+  cursor: none;
 }
 
 // Container
@@ -146,6 +147,7 @@ body {
     color: white;
     width: 250px;
     font-size: 1rem;
+    cursor: text !important;
 
     &::placeholder {
       color: rgba(255, 255, 255, 0.5);
@@ -163,8 +165,9 @@ body {
     color: $text-light;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: pointer !important;
     font-size: 1rem;
+
     @include transition;
 
     &:hover {
