@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../styles/AboutApp.scss';
 
 export function AboutApp() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   return (
     <>
@@ -24,7 +24,7 @@ export function AboutApp() {
             >
               ×
             </button>
-            <h2>About This site</h2>
+            <h2>About</h2>
             <div className="modal-body">
               <p>
                 This site compares your traditional astrological zodiac sign with your

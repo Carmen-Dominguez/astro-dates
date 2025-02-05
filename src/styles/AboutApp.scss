@@ -29,6 +29,21 @@ $navy: #00336634;
   }
 }
 
+@keyframes starGlowText {
+  0% {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+                 0 0 25px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.7),
+                 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+                 0 0 25px rgba(255, 255, 255, 0.3);
+  }
+}
+
 // Mixins
 @mixin flex-center {
   display: flex;
@@ -161,7 +176,8 @@ $navy: #00336634;
   padding: 5px;
   
   &:hover {
-    color: #00ffff;
+    color: $text-accent;
+    animation: starGlowText 2s ease-in-out infinite;
   }
 }
 
