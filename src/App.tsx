@@ -5,7 +5,8 @@ import NightSky from './components/nightSky'
 import { getAstronomicalSign, getAstrologicalSign, getComparison } from './utils/zodiacCalculations'
 import Constellation from './components/constellation'
 import { getPersonalityComparison, getDetailedComparison } from './utils/openai'
-import { postEmail } from './api/email'
+import { sendEmail } from './utils/emailer'
+// import { postEmail } from './api/email'
 // import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface Results {
@@ -57,23 +58,25 @@ function App() {
 
     try {
       // Get detailed comparison
-      const detailedComparison = await getDetailedComparison(astrological, astronomical) || '';
+      const detailedComparison = await getDetailedComparison(astrological, astronomical);
       
-      // Send email
-      const emailResponse = await postEmail(email, 'Your Zodiac Sign Comparison', detailedComparison);
-    
-      if (emailResponse) {     
+      // Send email directly using EmailJS
+      const emailResponse = await sendEmail({
+        to: email,
+        subject: `Your ${astrological} and ${astronomical} Sign Comparison`,
+        content: detailedComparison
+      });
+
+      if (emailResponse.success) {
         setEmailSent(true);
         setEmail(''); // Clear email input
       } else {
         throw new Error('Failed to send email');
+        setEmailSending(false);
       }
     } catch (error) {
       console.error('Error sending email:', error);
       // Optionally add error state and display to user
-      
-      setEmailSending(false);
-
     } finally {
       setEmailSending(false);
     }
@@ -134,11 +137,16 @@ function App() {
                       <button 
                         onClick={handleSendEmail}
                         disabled={emailSending || !email || emailSent}
-
+                        className="email-button"
                       >
                         {emailSending ? 'Sending...' : emailSent ? 'Sent!' : 'Send Comparison'}
                       </button>
                     </div>
+                    {emailSent && (
+                      <p className="email-success">
+                        ✨ Detailed comparison sent to your inbox! Check your email.
+                      </p>
+                    )}
                   </div>
                 )}
               </>

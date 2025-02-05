@@ -5,7 +5,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method === 'POST') {
         try {
             const { to, subject, content } = req.body;
-            const result = await sendEmail( to, subject, content);
+            const result = await sendEmail({to, subject, content});
             res.status(200).json(result);
         } catch (error) {
             res.status(500).json({ error: 'Failed to send email' });
