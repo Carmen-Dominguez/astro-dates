@@ -4,7 +4,8 @@ import './styles/App.scss'
 import NightSky from './components/nightSky'
 import { getAstronomicalSign, getAstrologicalSign, getComparison } from './utils/zodiacCalculations'
 import Constellation from './components/constellation'
-import { getPersonalityComparison } from './utils/openai'
+import { getPersonalityComparison, getDetailedComparison } from './utils/openai'
+import { sendEmail } from './utils/emailer'
 // import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface Results {
@@ -18,8 +19,16 @@ function App() {
   const [results, setResults] = useState<Results | null>(null)
   const [personalityComparison, setPersonalityComparison] = useState<string>('')
   const [isLoading, setIsLoading] = useState(false)
+  const [email, setEmail] = useState('');
+  const [emailSending, setEmailSending] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
 
   const calculateDates = async () => {
+    setEmail('');
+    setEmailSent(false);
+    setEmailSending(false);
+
     const date = DateTime.fromISO(inputDate)
 
     const astronomical = getAstronomicalSign(date)
@@ -46,6 +55,37 @@ function App() {
     }
   }
 
+  const handleSendEmail = async () => {
+    setEmailSending(true);
+    setEmailError(null);
+    const astrological = results?.astrological || '';
+    const astronomical = results?.astronomical || '';
+
+    try {
+      // Get detailed comparison
+      const detailedComparison = await getDetailedComparison(astrological, astronomical);
+      
+      // Send email directly using EmailJS
+      const emailResponse = await sendEmail({
+        to: email,
+        subject: `Your ${astrological} and ${astronomical} Sign Comparison`,
+        content: detailedComparison
+      });
+
+      if (emailResponse.success) {
+        setEmailSent(true);
+        setEmail('');
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setEmailError('Unable to send email. Please try again later.');
+    } finally {
+      setEmailSending(false);
+    }
+  };
+
   return (
     <NightSky>
       <div className="container">
@@ -63,6 +103,7 @@ function App() {
           <div className="results">
             <p>Astronomical Sign: {results.astronomical}</p>
             <p>Astrological Sign: {results.astrological}</p>
+
             {results.astronomical.length > 0 && (
               <>
                 <div className="constellation-wrapper">
@@ -75,12 +116,45 @@ function App() {
                 <p className="difference">
                   {getComparison(results.astrological, results.astronomical)}
                 </p>
+
                 {personalityComparison && (
                   <div className="personality-comparison-wrapper">
                     {isLoading ? (
                       <p className="personality-comparison">Loading personality comparison...</p>
                     ) : (
                       <p className="personality-comparison">{personalityComparison}</p>
+                    )}
+                  </div>
+                )}
+
+                {personalityComparison && (
+                  <div className="email-section">
+                    <p>Want a more detailed comparison? Get it in your email!</p>
+                    <div className="email-input-container input-section">
+                      <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="Enter your email"
+                        className="email-input"
+                      />
+                      <button 
+                        onClick={handleSendEmail}
+                        disabled={emailSending || !email || emailSent}
+                        className="email-button"
+                      >
+                        {emailSending ? 'Sending...' : emailSent ? 'Sent!' : 'Send Comparison'}
+                      </button>
+                    </div>
+                    {emailError && (
+                      <p className="email-error">
+                        {emailError}
+                      </p>
+                    )}
+                    {emailSent && (
+                      <p className="email-success">
+                        ✨ Detailed comparison sent to your inbox! Check your email.
+                      </p>
                     )}
                   </div>
                 )}
