@@ -6,6 +6,7 @@ import { getAstronomicalSign, getAstrologicalSign, getComparison } from './utils
 import Constellation from './components/constellation'
 import { getPersonalityComparison, getDetailedComparison } from './utils/openai'
 import { sendEmail } from './utils/emailer'
+import { AboutApp } from './components/AboutApp'
 // import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface Results {
@@ -163,6 +164,7 @@ function App() {
           </div>
         )}
       </div>
+      <AboutApp />
     </NightSky>
   )
 }
