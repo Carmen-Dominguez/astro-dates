@@ -24,10 +24,10 @@ export function AboutApp() {
             >
               ×
             </button>
-            <h2>About This App</h2>
+            <h2>About This site</h2>
             <div className="modal-body">
               <p>
-                This app compares your traditional astrological zodiac sign with your
+                This site compares your traditional astrological zodiac sign with your
                 actual astronomical constellation position at the time of your birth.
               </p>
               <p>
