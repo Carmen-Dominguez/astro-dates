@@ -109,12 +109,12 @@ body {
     @include glass-effect;
 
     @media (max-width: 768px) {
-      font-size: 1.75rem; 
+      font-size: 1.75rem;
     }
 
     @media (max-width: 480px) {
-      font-size: 1.5rem; 
-      padding: 0.5rem 1rem; 
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
     }
   }
 }
@@ -125,14 +125,19 @@ body {
   @include flex-center;
   gap: 1rem;
 
-  input[type="date"] {
-    padding: 0.75rem;
-    border: 2px solid $navy-light;
-    backdrop-filter: blur(4px);
+  input[type="date"],
+  input[type="email"] {
+    padding: 0.5rem 1rem;
     border-radius: 4px;
-    background-color: $navy;
-    color: $text-light;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 250px;
     font-size: 1rem;
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
 
     &:focus {
       outline: none;
@@ -153,6 +158,15 @@ body {
     &:hover {
       background-color: $text-accent;
       color: $navy-dark;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+      background: #357abd;
     }
   }
 }
@@ -197,11 +211,33 @@ body {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
-  .difference, .personality-comparison {
+  .difference,
+  .personality-comparison {
     color: $text-highlight;
     text-align: center;
     margin-top: 1rem;
     font-style: italic;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
+}
+
+.email-section {
+  margin-top: 2rem;
+  text-align: center;
+
+  p {
+    margin-bottom: 1rem;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+      0 0 10px rgba(255, 255, 255, 0.5),
+      0 0 15px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.email-input-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
