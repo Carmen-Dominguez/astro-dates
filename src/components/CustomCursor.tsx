@@ -36,7 +36,7 @@ export function CustomCursor() {
       style={{ 
         left: `${position.x}px`, 
         top: `${position.y}px`,
-        opacity: isMoving ? 1 : 0.5
+        opacity: isMoving ? 1 : 0.7
       }}
     />
   );
