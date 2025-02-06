@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { DateTime } from 'luxon'
 import './styles/App.scss'
 import NightSky from './components/nightSky'
@@ -8,6 +8,7 @@ import { getPersonalityComparison, getDetailedComparison } from './utils/openai'
 import { sendEmail } from './utils/emailer'
 import { AboutApp } from './components/AboutApp'
 import { CustomCursor } from './components/CustomCursor'
+import { initGA, logPageView, analyticsEvents } from './utils/analytics'
 // import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface Results {
@@ -26,15 +27,22 @@ function App() {
   const [emailSent, setEmailSent] = useState(false);
   const [emailError, setEmailError] = useState<string | null>(null);
 
+  useEffect(() => {
+    initGA();
+    logPageView();
+  }, []);
+
   const calculateDates = async () => {
     setEmail('');
     setEmailSent(false);
     setEmailSending(false);
 
     const date = DateTime.fromISO(inputDate)
+    analyticsEvents.dateSelected(date.toFormat('yyyy-MM-dd'));
 
     const astronomical = getAstronomicalSign(date)
     const astrological = getAstrologicalSign(date)
+    analyticsEvents.signCompared(astronomical, astrological);
 
     setResults({
       astronomical,
