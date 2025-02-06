@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../styles/AboutApp.scss';
-
+import { analyticsEvents } from '../utils/analytics';
 export function AboutApp() {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -8,7 +8,7 @@ export function AboutApp() {
     <>
       <button 
         className="info-button" 
-        onClick={() => setIsOpen(true)}
+        onClick={() => {setIsOpen(true); analyticsEvents.aboutViewed('About this app')}}
         aria-label="About this app"
       >
         <span>i</span>
