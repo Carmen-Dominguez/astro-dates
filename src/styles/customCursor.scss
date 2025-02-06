@@ -1,0 +1,46 @@
+
+.custom-cursor {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 1),
+              0 0 10px rgba(179, 219, 254, 0.7);
+  transition: opacity 0.5s ease;
+
+  &.hidden {
+    opacity: 0 !important;
+  }
+}
+
+.cursor-trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  background: linear-gradient(
+    90deg, 
+    rgba(179, 219, 254, 0.6),
+    rgba(255, 255, 255, 0)
+  );
+  width: 30px;
+  height: 2px;
+  border-radius: 1px;
+  animation: fadeOut 1s ease-out forwards;
+  transform-origin: center;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0.8;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(0.3);
+  }
+}
