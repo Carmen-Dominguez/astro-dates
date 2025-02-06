@@ -167,6 +167,8 @@ function App() {
                       {emailSent && (
                         <p className="email-success">
                           ✨ Detailed comparison sent to your inbox! Check your email.
+                          <br />
+                          Please check your spam folder if you don't receive the email within 5 minutes"
                         </p>
                       )}
                     </div>

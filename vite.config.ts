@@ -11,6 +11,10 @@ export default defineConfig({
       enableDev: true,
       analytics: {
         id: 'G-SD0X6H9G67',
+        config: {
+          cookie_domain: 'astrology-to-astronomy.vercel.app',
+          send_page_view: true
+        }
       }
     })
   ],
