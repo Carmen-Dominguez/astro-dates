@@ -8,7 +8,7 @@ import { getPersonalityComparison, getDetailedComparison } from './utils/openai'
 import { sendEmail } from './utils/emailer'
 import { AboutApp } from './components/AboutApp'
 import { CustomCursor } from './components/CustomCursor'
-import { initGA, logPageView, analyticsEvents } from './utils/analytics'
+import { analytics } from './utils/analytics'
 // import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface Results {
@@ -28,8 +28,7 @@ function App() {
   const [emailError, setEmailError] = useState<string | null>(null);
 
   useEffect(() => {
-    initGA();
-    logPageView();
+    analytics.pageViewed('Home Page')
   }, []);
 
   const calculateDates = async () => {
@@ -38,11 +37,11 @@ function App() {
     setEmailSending(false);
 
     const date = DateTime.fromISO(inputDate)
-    analyticsEvents.dateSelected(date.toFormat('yyyy-MM-dd'));
+    analytics.dateSelected(date.toFormat('yyyy-MM-dd'))
 
     const astronomical = getAstronomicalSign(date)
     const astrological = getAstrologicalSign(date)
-    analyticsEvents.signCompared(astronomical, astrological);
+    analytics.compareClicked(astronomical, astrological)
 
     setResults({
       astronomical,
@@ -88,6 +87,8 @@ function App() {
       } else {
         throw new Error('Failed to send email');
       }
+
+      analytics.emailSent(emailResponse.success);
     } catch (error) {
       console.error('Error sending email:', error);
       setEmailError('Unable to send email. Please try again later.');
