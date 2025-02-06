@@ -11,7 +11,6 @@ export const initGA = () => {
         debug_mode: true
       }
     });
-    console.log('Initializing GA with:', MEASUREMENT_ID); // Debug log
   } else {
     console.log('GA disabled in development'); // Debug log
   }
