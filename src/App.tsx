@@ -9,6 +9,7 @@ import { sendEmail } from './utils/emailer'
 import { AboutApp } from './components/AboutApp'
 import { CustomCursor } from './components/CustomCursor'
 import { analytics } from './utils/analytics'
+import { CookieConsent } from './components/CookieConsent'
 // import { SpeedInsights } from "@vercel/speed-insights/next"
 
 interface Results {
@@ -180,6 +181,7 @@ function App() {
         </div>
         <AboutApp />
       </NightSky>
+      <CookieConsent />
     </>
   )
 }
