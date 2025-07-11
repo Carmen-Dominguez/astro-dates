@@ -14,10 +14,8 @@ interface TarotCardProps {
 }
 
 const TarotCard: React.FC<TarotCardProps> = ({
-  id,
   name,
   suit,
-  meaning,
   reversed,
   isRevealed,
   isSelected,

@@ -4,7 +4,7 @@ import { CustomCursor } from '../components/CustomCursor'
 import { analytics } from '../utils/analytics'
 import { CookieConsent } from '../components/CookieConsent'
 import TarotDeck from '../components/TarotDeck'
-import { getDetailedTarotReading, TarotCardInfo } from '../utils/openai';
+import { getDetailedTarotReading } from '../utils/openai';
 
 interface TarotCardData {
   id: string;
@@ -109,19 +109,6 @@ function TarotReading() {
     )[0];
     
     return themes[maxSuit as keyof typeof themes] || 'personal growth and self-discovery';
-  };
-
-  const getFocusArea = (cards: TarotCardData[]): string => {
-    const reversedCount = cards.filter(card => card.reversed).length;
-    const totalCards = cards.length;
-    
-    if (reversedCount > totalCards / 2) {
-      return 'your inner world and subconscious patterns';
-    } else if (reversedCount > 0) {
-      return 'both your conscious and unconscious mind';
-    } else {
-      return 'your conscious awareness and active choices';
-    }
   };
 
   return (
