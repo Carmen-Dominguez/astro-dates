@@ -27,10 +27,12 @@ const TarotDeck: React.FC<TarotDeckProps> = ({
   const [deck, setDeck] = useState<TarotCardData[]>([]);
   const [selectedCards, setSelectedCards] = useState<TarotCardData[]>([]);
   const [isShuffling, setIsShuffling] = useState(false);
+  const [isFannedOut, setIsFannedOut] = useState(false);
 
   // Initialize deck with tarot cards
   useEffect(() => {
     initializeDeck();
+    setIsFannedOut(false); // Reset to stacked on mount
   }, []);
 
   const initializeDeck = () => {
@@ -128,6 +130,7 @@ const TarotDeck: React.FC<TarotDeckProps> = ({
       setDeck(withReversals);
       setSelectedCards([]);
       setIsShuffling(false);
+      setIsFannedOut(true); // Fan out after shuffle
     }, 1000);
   };
 
@@ -166,13 +169,14 @@ const TarotDeck: React.FC<TarotDeckProps> = ({
       isRevealed: false,
       isSelected: false
     })));
+    setIsFannedOut(false); // Reset to stacked after reset
     if (typeof onReset === 'function') {
       onReset();
     }
   };
 
   return (
-    <div className="tarot-deck">
+    <div className={`tarot-deck${isFannedOut ? ' fanned' : ' stacked'}`}>
       <div className="deck-controls">
         <button 
           onClick={shuffleDeck} 
@@ -196,13 +200,28 @@ const TarotDeck: React.FC<TarotDeckProps> = ({
       </div>
 
       <div className="cards-container">
-        {deck.map((card) => (
-          <TarotCard
-            key={card.id}
-            {...card}
-            onClick={() => handleCardClick(card.id)}
-          />
-        ))}
+        {isFannedOut ? (
+          deck.map((card) => (
+            <TarotCard
+              key={card.id}
+              {...card}
+              onClick={() => handleCardClick(card.id)}
+            />
+          ))
+        ) : (
+          // Show only the top card (card back), with a slight fan effect
+          <div className="stacked-cards">
+            {deck.slice(0, 5).map((card, i) => (
+              <TarotCard
+                key={card.id}
+                {...card}
+                isRevealed={false}
+                isSelected={false}
+                onClick={undefined} // Not selectable until shuffled
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {selectedCards.length > 0 && (
