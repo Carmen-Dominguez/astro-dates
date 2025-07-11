@@ -170,27 +170,24 @@ body {
 
   button {
     padding: 0.75rem 1.5rem;
-    background-color: $navy-light;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: $text-light;
     border: none;
-    border-radius: 4px;
+    border-radius: 25px;
     cursor: pointer !important;
     font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
 
-    @include transition;
-
-    &:hover {
-      background-color: $text-accent;
-      color: $navy-dark;
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
     }
 
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
-    }
-
-    &:hover:not(:disabled) {
-      background: #357abd;
+      transform: none;
     }
   }
 }
@@ -267,6 +264,29 @@ body {
     @media (max-width: 480px) {
       flex-direction: column;
     }
+
+    .email-button {
+      padding: 0.75rem 1.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: $text-light;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer !important;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+
+      &:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none;
+      }
+    }
   }
 
   .email-success,
@@ -317,29 +337,7 @@ body {
   }
 }
 
-.reading-button {
-  padding: 1rem 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: $text-light;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer !important;
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-top: 1rem;
-  transition: all 0.3s ease;
 
-  &:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    transform: none;
-  }
-}
 
 .reading-results {
   @include glass-effect;
