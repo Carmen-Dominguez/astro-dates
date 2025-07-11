@@ -58,16 +58,16 @@ const TarotDeck: React.FC<TarotDeckProps> = ({
       { id: '21', name: 'The World', suit: 'Major Arcana', meaning: 'Completion, integration, accomplishment', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/21_The_world.png' },
       
       // Minor Arcana - Cups (no images for now, using symbols)
-      { id: '22', name: 'Ace of Cups', suit: 'Cups', meaning: 'New feelings, intuition, love', reversed: false, isRevealed: false, isSelected: false },
-      { id: '23', name: 'Two of Cups', suit: 'Cups', meaning: 'Unity, partnership, connection', reversed: false, isRevealed: false, isSelected: false },
-      { id: '24', name: 'Three of Cups', suit: 'Cups', meaning: 'Celebration, friendship, creativity', reversed: false, isRevealed: false, isSelected: false },
-      { id: '25', name: 'Four of Cups', suit: 'Cups', meaning: 'Meditation, contemplation, apathy', reversed: false, isRevealed: false, isSelected: false },
-      { id: '26', name: 'Five of Cups', suit: 'Cups', meaning: 'Loss, grief, self-pity', reversed: false, isRevealed: false, isSelected: false },
-      { id: '27', name: 'Six of Cups', suit: 'Cups', meaning: 'Revisiting the past, childhood memories', reversed: false, isRevealed: false, isSelected: false },
-      { id: '28', name: 'Seven of Cups', suit: 'Cups', meaning: 'Choices, fantasy, illusion', reversed: false, isRevealed: false, isSelected: false },
-      { id: '29', name: 'Eight of Cups', suit: 'Cups', meaning: 'Walking away, disillusionment', reversed: false, isRevealed: false, isSelected: false },
-      { id: '30', name: 'Nine of Cups', suit: 'Cups', meaning: 'Satisfaction, emotional stability', reversed: false, isRevealed: false, isSelected: false },
-      { id: '31', name: 'Ten of Cups', suit: 'Cups', meaning: 'Divine love, blissful relationships', reversed: false, isRevealed: false, isSelected: false },
+      { id: '22', name: 'Ace of Cups', suit: 'Cups', meaning: 'New feelings, intuition, love', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_ace_of_cups.jpg' },
+      { id: '23', name: 'Two of Cups', suit: 'Cups', meaning: 'Unity, partnership, connection', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_2_cups.png' },
+      { id: '24', name: 'Three of Cups', suit: 'Cups', meaning: 'Celebration, friendship, creativity', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_3_cups.png' },
+      { id: '25', name: 'Four of Cups', suit: 'Cups', meaning: 'Meditation, contemplation, apathy', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_4_cups.png' },
+      { id: '26', name: 'Five of Cups', suit: 'Cups', meaning: 'Loss, grief, self-pity', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_5_cups.png' },
+      { id: '27', name: 'Six of Cups', suit: 'Cups', meaning: 'Revisiting the past, childhood memories', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_6_cups.png' },
+      { id: '28', name: 'Seven of Cups', suit: 'Cups', meaning: 'Choices, fantasy, illusion', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_7_cups.png' },
+      { id: '29', name: 'Eight of Cups', suit: 'Cups', meaning: 'Walking away, disillusionment', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_8_cups.png' },
+      { id: '30', name: 'Nine of Cups', suit: 'Cups', meaning: 'Satisfaction, emotional stability', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_9_cups.png' },
+      { id: '31', name: 'Ten of Cups', suit: 'Cups', meaning: 'Divine love, blissful relationships', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_10_cups.png' },
       
       // Minor Arcana - Wands (no images for now, using symbols)
       { id: '32', name: 'Ace of Wands', suit: 'Wands', meaning: 'Creation, willpower, inspiration', reversed: false, isRevealed: false, isSelected: false },
