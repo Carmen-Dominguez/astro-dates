@@ -70,16 +70,16 @@ const TarotDeck: React.FC<TarotDeckProps> = ({
       { id: '31', name: 'Ten of Cups', suit: 'Cups', meaning: 'Divine love, blissful relationships', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_10_cups.png' },
       
       // Minor Arcana - Wands (no images for now, using symbols)
-      { id: '32', name: 'Ace of Wands', suit: 'Wands', meaning: 'Creation, willpower, inspiration', reversed: false, isRevealed: false, isSelected: false },
-      { id: '33', name: 'Two of Wands', suit: 'Wands', meaning: 'Planning, making decisions', reversed: false, isRevealed: false, isSelected: false },
-      { id: '34', name: 'Three of Wands', suit: 'Wands', meaning: 'Looking ahead, expansion', reversed: false, isRevealed: false, isSelected: false },
-      { id: '35', name: 'Four of Wands', suit: 'Wands', meaning: 'Celebration, joy, harmony', reversed: false, isRevealed: false, isSelected: false },
-      { id: '36', name: 'Five of Wands', suit: 'Wands', meaning: 'Conflict, disagreements, competition', reversed: false, isRevealed: false, isSelected: false },
-      { id: '37', name: 'Six of Wands', suit: 'Wands', meaning: 'Success, public recognition', reversed: false, isRevealed: false, isSelected: false },
-      { id: '38', name: 'Seven of Wands', suit: 'Wands', meaning: 'Perseverance, defensive position', reversed: false, isRevealed: false, isSelected: false },
-      { id: '39', name: 'Eight of Wands', suit: 'Wands', meaning: 'Movement, fast paced change', reversed: false, isRevealed: false, isSelected: false },
-      { id: '40', name: 'Nine of Wands', suit: 'Wands', meaning: 'Resilience, courage, persistence', reversed: false, isRevealed: false, isSelected: false },
-      { id: '41', name: 'Ten of Wands', suit: 'Wands', meaning: 'Burden, extra responsibility', reversed: false, isRevealed: false, isSelected: false },
+      { id: '32', name: 'Ace of Wands', suit: 'Wands', meaning: 'Creation, willpower, inspiration', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_ace_of_wands.jpg' },
+      { id: '33', name: 'Two of Wands', suit: 'Wands', meaning: 'Planning, making decisions', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_2_wands.png' },
+      { id: '34', name: 'Three of Wands', suit: 'Wands', meaning: 'Looking ahead, expansion', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_3_wands.png' },
+      { id: '35', name: 'Four of Wands', suit: 'Wands', meaning: 'Celebration, joy, harmony', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_4_wands.png' },
+      { id: '36', name: 'Five of Wands', suit: 'Wands', meaning: 'Conflict, disagreements, competition', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_5_wands.png' },
+      { id: '37', name: 'Six of Wands', suit: 'Wands', meaning: 'Success, public recognition', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_6_wands.png' },
+      { id: '38', name: 'Seven of Wands', suit: 'Wands', meaning: 'Perseverance, defensive position', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_7_wands.png' },
+      { id: '39', name: 'Eight of Wands', suit: 'Wands', meaning: 'Movement, fast paced change', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_8_wands.png' },
+      { id: '40', name: 'Nine of Wands', suit: 'Wands', meaning: 'Resilience, courage, persistence', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_9_wands.png' },
+      { id: '41', name: 'Ten of Wands', suit: 'Wands', meaning: 'Burden, extra responsibility', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_10_wands.png' },
       
       // Minor Arcana - Swords (no images for now, using symbols)
       { id: '42', name: 'Ace of Swords', suit: 'Swords', meaning: 'Breakthrough, clarity, sharp mind', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_ace_of_swords.jpg' },
