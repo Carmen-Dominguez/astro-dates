@@ -16,11 +16,13 @@ interface TarotCardData {
 interface TarotDeckProps {
   onCardSelect?: (selectedCards: TarotCardData[]) => void;
   maxSelections?: number;
+  onReset?: () => void;
 }
 
 const TarotDeck: React.FC<TarotDeckProps> = ({ 
   onCardSelect, 
-  maxSelections = 3 
+  maxSelections = 3,
+  onReset
 }) => {
   const [deck, setDeck] = useState<TarotCardData[]>([]);
   const [selectedCards, setSelectedCards] = useState<TarotCardData[]>([]);
@@ -164,6 +166,9 @@ const TarotDeck: React.FC<TarotDeckProps> = ({
       isRevealed: false,
       isSelected: false
     })));
+    if (typeof onReset === 'function') {
+      onReset();
+    }
   };
 
   return (

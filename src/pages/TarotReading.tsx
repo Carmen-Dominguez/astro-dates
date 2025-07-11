@@ -132,6 +132,7 @@ function TarotReading() {
           <TarotDeck 
             onCardSelect={handleCardSelect}
             maxSelections={3}
+            onReset={() => setReading('')}
           />
 
           <div className="reading-section">
