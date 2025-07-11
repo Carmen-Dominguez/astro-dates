@@ -87,7 +87,7 @@ export async function getDetailedTarotReading(question: string, cards: TarotCard
                     content: `Question: ${question}\n\nCards Drawn:\n${cardDescriptions}\n\nPlease provide a detailed tarot reading interpretation.`
                 }
             ],
-            max_tokens: 500
+            max_tokens: 250
         });
 
         return completion.choices[0].message.content || '';
