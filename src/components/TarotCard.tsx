@@ -22,7 +22,7 @@ const TarotCard: React.FC<TarotCardProps> = ({
   imageUrl,
   onClick
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
+
   const cardBackUrl = 'public/tarot/tarot_back.png';
 
   const handleClick = () => {
@@ -35,8 +35,6 @@ const TarotCard: React.FC<TarotCardProps> = ({
     <div
       className={`tarot-card ${isRevealed ? 'revealed' : ''} ${isSelected ? 'selected' : ''} ${reversed ? 'reversed' : ''}`}
       onClick={handleClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="card-inner">
         <div className="card-front">
