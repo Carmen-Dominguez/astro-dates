@@ -71,15 +71,6 @@ const TarotCard: React.FC<TarotCardProps> = ({
                   {reversed ? '🔄' : '✨'}
                 </div>
               </div>
-              
-              <div className="card-meaning">
-                <p>{meaning}</p>
-                {reversed && (
-                  <div className="reversed-indicator">
-                    <span>Reversed</span>
-                  </div>
-                )}
-              </div>
             </div>
           </div>
         </div>
