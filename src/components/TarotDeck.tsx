@@ -82,16 +82,16 @@ const TarotDeck: React.FC<TarotDeckProps> = ({
       { id: '41', name: 'Ten of Wands', suit: 'Wands', meaning: 'Burden, extra responsibility', reversed: false, isRevealed: false, isSelected: false },
       
       // Minor Arcana - Swords (no images for now, using symbols)
-      { id: '42', name: 'Ace of Swords', suit: 'Swords', meaning: 'Breakthrough, clarity, sharp mind', reversed: false, isRevealed: false, isSelected: false },
-      { id: '43', name: 'Two of Swords', suit: 'Swords', meaning: 'Difficult choices, indecision', reversed: false, isRevealed: false, isSelected: false },
-      { id: '44', name: 'Three of Swords', suit: 'Swords', meaning: 'Heartbreak, suffering, grief', reversed: false, isRevealed: false, isSelected: false },
-      { id: '45', name: 'Four of Swords', suit: 'Swords', meaning: 'Rest, relaxation, meditation', reversed: false, isRevealed: false, isSelected: false },
-      { id: '46', name: 'Five of Swords', suit: 'Swords', meaning: 'Conflict, disagreements, defeat', reversed: false, isRevealed: false, isSelected: false },
-      { id: '47', name: 'Six of Swords', suit: 'Swords', meaning: 'Transition, change, rite of passage', reversed: false, isRevealed: false, isSelected: false },
-      { id: '48', name: 'Seven of Swords', suit: 'Swords', meaning: 'Betrayal, deception, getting away', reversed: false, isRevealed: false, isSelected: false },
-      { id: '49', name: 'Eight of Swords', suit: 'Swords', meaning: 'Imprisonment, entrapment, self-limiting', reversed: false, isRevealed: false, isSelected: false },
-      { id: '50', name: 'Nine of Swords', suit: 'Swords', meaning: 'Anxiety, worry, fear', reversed: false, isRevealed: false, isSelected: false },
-      { id: '51', name: 'Ten of Swords', suit: 'Swords', meaning: 'Painful endings, deep wounds', reversed: false, isRevealed: false, isSelected: false },
+      { id: '42', name: 'Ace of Swords', suit: 'Swords', meaning: 'Breakthrough, clarity, sharp mind', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_ace_of_swords.jpg' },
+      { id: '43', name: 'Two of Swords', suit: 'Swords', meaning: 'Difficult choices, indecision', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_2_swords.png' },
+      { id: '44', name: 'Three of Swords', suit: 'Swords', meaning: 'Heartbreak, suffering, grief', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_3_swords.png' },
+      { id: '45', name: 'Four of Swords', suit: 'Swords', meaning: 'Rest, relaxation, meditation', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_4_swords.png' },
+      { id: '46', name: 'Five of Swords', suit: 'Swords', meaning: 'Conflict, disagreements, defeat', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_5_swords.png' },
+      { id: '47', name: 'Six of Swords', suit: 'Swords', meaning: 'Transition, change, rite of passage', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_6_swords.png' },
+      { id: '48', name: 'Seven of Swords', suit: 'Swords', meaning: 'Betrayal, deception, getting away', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_7_swords.png' },
+      { id: '49', name: 'Eight of Swords', suit: 'Swords', meaning: 'Imprisonment, entrapment, self-limiting', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_8_swords.png' },
+      { id: '50', name: 'Nine of Swords', suit: 'Swords', meaning: 'Anxiety, worry, fear', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_9_swords.png' },
+      { id: '51', name: 'Ten of Swords', suit: 'Swords', meaning: 'Painful endings, deep wounds', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_10_swords.png' },
       
       // Minor Arcana - Pentacles (no images for now, using symbols)
       { id: '52', name: 'Ace of Pentacles', suit: 'Pentacles', meaning: 'New financial opportunity, abundance', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_ace_of_pentacles.jpg' },
