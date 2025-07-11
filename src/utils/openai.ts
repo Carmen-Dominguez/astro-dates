@@ -62,4 +62,39 @@ export async function getDetailedComparison(astrological: string, astronomical: 
     }
 }
 
+export interface TarotCardInfo {
+    name: string;
+    suit: string;
+    meaning: string;
+    reversed: boolean;
+}
+
+export async function getDetailedTarotReading(question: string, cards: TarotCardInfo[]): Promise<string> {
+    try {
+        const cardDescriptions = cards.map(card =>
+            `${card.name} (${card.suit}) - ${card.meaning}${card.reversed ? ' [Reversed]' : ''}`
+        ).join('\n');
+
+        const completion = await openai.chat.completions.create({
+            model: "gpt-4",
+            messages: [
+                {
+                    role: "system",
+                    content: `You are a master tarot reader. Provide a detailed, insightful, and empathetic interpretation of tarot spreads. Consider the user's question and the meaning of each card, including if it is reversed. Avoid generic or overly positive statements. Structure the response with an Overall Message, then a section for each card, and a Conclusion.`
+                },
+                {
+                    role: "user",
+                    content: `Question: ${question}\n\nCards Drawn:\n${cardDescriptions}\n\nPlease provide a detailed tarot reading interpretation.`
+                }
+            ],
+            max_tokens: 700
+        });
+
+        return completion.choices[0].message.content || '';
+    } catch (error) {
+        console.error('Error generating detailed tarot reading:', error);
+        return "Unable to generate tarot reading at this time.";
+    }
+}
+
 export default openai;

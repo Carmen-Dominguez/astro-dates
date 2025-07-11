@@ -4,6 +4,7 @@ import { CustomCursor } from '../components/CustomCursor'
 import { analytics } from '../utils/analytics'
 import { CookieConsent } from '../components/CookieConsent'
 import TarotDeck from '../components/TarotDeck'
+import { getDetailedTarotReading, TarotCardInfo } from '../utils/openai';
 
 interface TarotCardData {
   id: string;
@@ -35,8 +36,7 @@ function TarotReading() {
     setIsLoading(true);
     
     try {
-      // TODO: Implement AI-powered tarot reading
-      const readingText = generateReading(question, selectedCards);
+      const readingText = await generateReading(question, selectedCards);
       setReading(readingText);
       
       analytics.compareClicked('tarot_reading', `${selectedCards.length}_cards`);
@@ -48,7 +48,7 @@ function TarotReading() {
     }
   };
 
-  const generateReading = (question: string, cards: TarotCardData[]): string => {
+  const generateReading = async (question: string, cards: TarotCardData[]): Promise<string> => {
     const cardNames = cards.map(card => 
       `${card.name}${card.reversed ? ' (Reversed)' : ''}`
     ).join(', ');
@@ -75,10 +75,16 @@ function TarotReading() {
     });
     
     reading += `🌟 Overall Message:\n`;
+    // Call OpenAI for detailed interpretation
+    const aiMessage = await getDetailedTarotReading(question, cards.map(card => ({
+      name: card.name,
+      suit: card.suit,
+      meaning: card.meaning,
+      reversed: card.reversed
+    })));
+
     reading += `The cards suggest a period of ${getOverallTheme(cards)}. `;
-    reading += `Pay attention to the messages from ${getFocusArea(cards)}. `;
-    reading += `Trust your intuition as you navigate this journey.\n\n`;
-    
+    reading += aiMessage + '\n\n';
     reading += `✨ Remember: Tarot readings are for guidance and reflection. The power to shape your destiny lies within you.`;
     
     return reading;
