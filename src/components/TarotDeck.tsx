@@ -33,31 +33,31 @@ const TarotDeck: React.FC<TarotDeckProps> = ({
 
   const initializeDeck = () => {
     const tarotCards: TarotCardData[] = [
-      // Major Arcana with local image URLs
+      // Major Arcana with local image URLs (all available)
       { id: '0', name: 'The Fool', suit: 'Major Arcana', meaning: 'New beginnings, innocence, spontaneity', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/0_the_fool.png' },
       { id: '1', name: 'The Magician', suit: 'Major Arcana', meaning: 'Manifestation, resourcefulness, power', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/1_the_magician.png' },
       { id: '2', name: 'The High Priestess', suit: 'Major Arcana', meaning: 'Intuition, mystery, inner knowledge', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/2_the_high_priestess.png' },
       { id: '3', name: 'The Empress', suit: 'Major Arcana', meaning: 'Fertility, nurturing, abundance', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/3_the_Empress.png' },
       { id: '4', name: 'The Emperor', suit: 'Major Arcana', meaning: 'Authority, structure, control', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/4_the_emperor.png' },
+      { id: '5', name: 'The Hierophant', suit: 'Major Arcana', meaning: 'Tradition, conformity, morality', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/5_the_Hierophant.png' },
+      { id: '6', name: 'The Lovers', suit: 'Major Arcana', meaning: 'Love, harmony, relationships', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/6_the_lovers.png' },
+      { id: '7', name: 'The Chariot', suit: 'Major Arcana', meaning: 'Control, willpower, determination', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/7_The_Chariot.png' },
+      { id: '8', name: 'Strength', suit: 'Major Arcana', meaning: 'Inner strength, courage, patience', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/8_Strength.png' },
+      { id: '9', name: 'The Hermit', suit: 'Major Arcana', meaning: 'Soul-searching, introspection, solitude', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/9_the_Hermit.png' },
       { id: '10', name: 'Wheel of Fortune', suit: 'Major Arcana', meaning: 'Change, cycles, fate', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/10_wheel_of_fortune.png' },
-      // The rest of the Major and Minor Arcana (no imageUrl for now)
-      { id: '5', name: 'The Hierophant', suit: 'Major Arcana', meaning: 'Tradition, conformity, morality', reversed: false, isRevealed: false, isSelected: false },
-      { id: '6', name: 'The Lovers', suit: 'Major Arcana', meaning: 'Love, harmony, relationships', reversed: false, isRevealed: false, isSelected: false },
-      { id: '7', name: 'The Chariot', suit: 'Major Arcana', meaning: 'Control, willpower, determination', reversed: false, isRevealed: false, isSelected: false },
-      { id: '8', name: 'Strength', suit: 'Major Arcana', meaning: 'Inner strength, courage, patience', reversed: false, isRevealed: false, isSelected: false },
-      { id: '9', name: 'The Hermit', suit: 'Major Arcana', meaning: 'Soul-searching, introspection, solitude', reversed: false, isRevealed: false, isSelected: false },
-      { id: '11', name: 'Justice', suit: 'Major Arcana', meaning: 'Justice, fairness, truth', reversed: false, isRevealed: false, isSelected: false },
-      { id: '12', name: 'The Hanged Man', suit: 'Major Arcana', meaning: 'Surrender, letting go, new perspective', reversed: false, isRevealed: false, isSelected: false },
-      { id: '13', name: 'Death', suit: 'Major Arcana', meaning: 'Endings, change, transformation', reversed: false, isRevealed: false, isSelected: false },
-      { id: '14', name: 'Temperance', suit: 'Major Arcana', meaning: 'Balance, moderation, patience', reversed: false, isRevealed: false, isSelected: false },
-      { id: '15', name: 'The Devil', suit: 'Major Arcana', meaning: 'Shadow self, attachment, addiction', reversed: false, isRevealed: false, isSelected: false },
-      { id: '16', name: 'The Tower', suit: 'Major Arcana', meaning: 'Sudden change, upheaval, revelation', reversed: false, isRevealed: false, isSelected: false },
-      { id: '17', name: 'The Star', suit: 'Major Arcana', meaning: 'Hope, faith, purpose', reversed: false, isRevealed: false, isSelected: false },
-      { id: '18', name: 'The Moon', suit: 'Major Arcana', meaning: 'Illusion, fear, anxiety', reversed: false, isRevealed: false, isSelected: false },
-      { id: '19', name: 'The Sun', suit: 'Major Arcana', meaning: 'Positivity, fun, warmth', reversed: false, isRevealed: false, isSelected: false },
-      { id: '20', name: 'Judgement', suit: 'Major Arcana', meaning: 'Judgement, rebirth, inner calling', reversed: false, isRevealed: false, isSelected: false },
-      { id: '21', name: 'The World', suit: 'Major Arcana', meaning: 'Completion, integration, accomplishment', reversed: false, isRevealed: false, isSelected: false },
-      // Minor Arcana (no imageUrl for now)
+      { id: '11', name: 'Justice', suit: 'Major Arcana', meaning: 'Justice, fairness, truth', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/11_justice.png' },
+      { id: '12', name: 'The Hanged Man', suit: 'Major Arcana', meaning: 'Surrender, letting go, new perspective', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/12_the_Hanged_Man.png' },
+      { id: '13', name: 'Death', suit: 'Major Arcana', meaning: 'Endings, change, transformation', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/13_Death.png' },
+      { id: '14', name: 'Temperance', suit: 'Major Arcana', meaning: 'Balance, moderation, patience', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/14_Temperance.png' },
+      { id: '15', name: 'The Devil', suit: 'Major Arcana', meaning: 'Shadow self, attachment, addiction', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/15_the_Devil.png' },
+      { id: '16', name: 'The Tower', suit: 'Major Arcana', meaning: 'Sudden change, upheaval, revelation', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/16_the_tower.png' },
+      { id: '17', name: 'The Star', suit: 'Major Arcana', meaning: 'Hope, faith, purpose', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/17_the_Star.png' },
+      { id: '18', name: 'The Moon', suit: 'Major Arcana', meaning: 'Illusion, fear, anxiety', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/18_the_moon.png' },
+      { id: '19', name: 'The Sun', suit: 'Major Arcana', meaning: 'Positivity, fun, warmth', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/19_The_Sun.png' },
+      { id: '20', name: 'Judgement', suit: 'Major Arcana', meaning: 'Judgement, rebirth, inner calling', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/20_judgment.png' },
+      { id: '21', name: 'The World', suit: 'Major Arcana', meaning: 'Completion, integration, accomplishment', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/21_The_world.png' },
+      
+      // Minor Arcana - Cups (no images for now, using symbols)
       { id: '22', name: 'Ace of Cups', suit: 'Cups', meaning: 'New feelings, intuition, love', reversed: false, isRevealed: false, isSelected: false },
       { id: '23', name: 'Two of Cups', suit: 'Cups', meaning: 'Unity, partnership, connection', reversed: false, isRevealed: false, isSelected: false },
       { id: '24', name: 'Three of Cups', suit: 'Cups', meaning: 'Celebration, friendship, creativity', reversed: false, isRevealed: false, isSelected: false },
