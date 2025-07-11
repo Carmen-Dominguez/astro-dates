@@ -57,7 +57,7 @@ const TarotDeck: React.FC<TarotDeckProps> = ({
       { id: '20', name: 'Judgement', suit: 'Major Arcana', meaning: 'Judgement, rebirth, inner calling', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/20_judgment.png' },
       { id: '21', name: 'The World', suit: 'Major Arcana', meaning: 'Completion, integration, accomplishment', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/21_The_world.png' },
       
-      // Minor Arcana - Cups (no images for now, using symbols)
+      // Minor Arcana - Cups
       { id: '22', name: 'Ace of Cups', suit: 'Cups', meaning: 'New feelings, intuition, love', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_ace_of_cups.jpg' },
       { id: '23', name: 'Two of Cups', suit: 'Cups', meaning: 'Unity, partnership, connection', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_2_cups.png' },
       { id: '24', name: 'Three of Cups', suit: 'Cups', meaning: 'Celebration, friendship, creativity', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_3_cups.png' },
@@ -94,16 +94,16 @@ const TarotDeck: React.FC<TarotDeckProps> = ({
       { id: '51', name: 'Ten of Swords', suit: 'Swords', meaning: 'Painful endings, deep wounds', reversed: false, isRevealed: false, isSelected: false },
       
       // Minor Arcana - Pentacles (no images for now, using symbols)
-      { id: '52', name: 'Ace of Pentacles', suit: 'Pentacles', meaning: 'New financial opportunity, abundance', reversed: false, isRevealed: false, isSelected: false },
-      { id: '53', name: 'Two of Pentacles', suit: 'Pentacles', meaning: 'Multiple priorities, time management', reversed: false, isRevealed: false, isSelected: false },
-      { id: '54', name: 'Three of Pentacles', suit: 'Pentacles', meaning: 'Teamwork, collaboration, building', reversed: false, isRevealed: false, isSelected: false },
-      { id: '55', name: 'Four of Pentacles', suit: 'Pentacles', meaning: 'Conservation, security, frugality', reversed: false, isRevealed: false, isSelected: false },
-      { id: '56', name: 'Five of Pentacles', suit: 'Pentacles', meaning: 'Need, poverty, insecurity', reversed: false, isRevealed: false, isSelected: false },
-      { id: '57', name: 'Six of Pentacles', suit: 'Pentacles', meaning: 'Charity, generosity, sharing', reversed: false, isRevealed: false, isSelected: false },
-      { id: '58', name: 'Seven of Pentacles', suit: 'Pentacles', meaning: 'Hard work, perseverance, diligence', reversed: false, isRevealed: false, isSelected: false },
-      { id: '59', name: 'Eight of Pentacles', suit: 'Pentacles', meaning: 'Apprenticeship, repetitive tasks', reversed: false, isRevealed: false, isSelected: false },
-      { id: '60', name: 'Nine of Pentacles', suit: 'Pentacles', meaning: 'Luxury, self-sufficiency, financial independence', reversed: false, isRevealed: false, isSelected: false },
-      { id: '61', name: 'Ten of Pentacles', suit: 'Pentacles', meaning: 'Legacy, culmination, inheritance', reversed: false, isRevealed: false, isSelected: false },
+      { id: '52', name: 'Ace of Pentacles', suit: 'Pentacles', meaning: 'New financial opportunity, abundance', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_ace_of_pentacles.jpg' },
+      { id: '53', name: 'Two of Pentacles', suit: 'Pentacles', meaning: 'Multiple priorities, time management', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_2_pentacles.png' },
+      { id: '54', name: 'Three of Pentacles', suit: 'Pentacles', meaning: 'Teamwork, collaboration, building', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_3_pentacles.png' },
+      { id: '55', name: 'Four of Pentacles', suit: 'Pentacles', meaning: 'Conservation, security, frugality', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_4_pentacles.png' },
+      { id: '56', name: 'Five of Pentacles', suit: 'Pentacles', meaning: 'Need, poverty, insecurity', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_5_pentacles.png' },
+      { id: '57', name: 'Six of Pentacles', suit: 'Pentacles', meaning: 'Charity, generosity, sharing', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_6_pentacles.png' },
+      { id: '58', name: 'Seven of Pentacles', suit: 'Pentacles', meaning: 'Hard work, perseverance, diligence', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_7_pentacles.png' },
+      { id: '59', name: 'Eight of Pentacles', suit: 'Pentacles', meaning: 'Apprenticeship, repetitive tasks', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_8_pentacles.png' },
+      { id: '60', name: 'Nine of Pentacles', suit: 'Pentacles', meaning: 'Luxury, self-sufficiency, financial independence', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_9_pentacles.png' },
+      { id: '61', name: 'Ten of Pentacles', suit: 'Pentacles', meaning: 'Legacy, culmination, inheritance', reversed: false, isRevealed: false, isSelected: false, imageUrl: '/tarot/Tarot_10_pentacles.png' },
     ];
 
     setDeck(tarotCards);
