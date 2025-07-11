@@ -5,6 +5,7 @@ import { analytics } from '../utils/analytics'
 import { CookieConsent } from '../components/CookieConsent'
 import TarotDeck from '../components/TarotDeck'
 import { getDetailedTarotReading } from '../utils/openai';
+import { sendEmail } from '../utils/emailer';
 
 interface TarotCardData {
   id: string;
@@ -21,6 +22,10 @@ function TarotReading() {
   const [selectedCards, setSelectedCards] = useState<TarotCardData[]>([])
   const [reading, setReading] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const [email, setEmail] = useState('');
+  const [emailSending, setEmailSending] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
+  const [emailError, setEmailError] = useState<string | null>(null);
 
   useEffect(() => {
     analytics.pageViewed('Tarot Reading Page')
@@ -111,6 +116,29 @@ function TarotReading() {
     return themes[maxSuit as keyof typeof themes] || 'personal growth and self-discovery';
   };
 
+  const handleSendEmail = async () => {
+    setEmailSending(true);
+    setEmailError(null);
+    try {
+      const emailResponse = await sendEmail({
+        to: email,
+        subject: 'Your Tarot Reading Results',
+        content: reading
+      });
+      if (emailResponse.success) {
+        setEmailSent(true);
+        setEmail('');
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setEmailError('Unable to send email. Please try again later.');
+    } finally {
+      setEmailSending(false);
+    }
+  };
+
   return (
     <>
       <CustomCursor />
@@ -150,6 +178,37 @@ function TarotReading() {
               <h2>Your Reading</h2>
               <div className="reading-content">
                 {reading}
+              </div>
+              <div className="email-section">
+                <p>Want your tarot reading emailed to you?</p>
+                <div className="email-input-container input-section">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className="email-input"
+                  />
+                  <button
+                    onClick={handleSendEmail}
+                    disabled={emailSending || !email || emailSent}
+                    className="email-button"
+                  >
+                    {emailSending ? 'Sending...' : emailSent ? 'Sent!' : 'Send Reading'}
+                  </button>
+                </div>
+                {emailError && (
+                  <p className="email-error">
+                    {emailError}
+                  </p>
+                )}
+                {emailSent && (
+                  <p className="email-success">
+                    ✨ Tarot reading sent to your inbox! Check your email.
+                    <br />
+                    Please check your spam folder if you don't receive the email within 5 minutes.
+                  </p>
+                )}
               </div>
             </div>
           )}
