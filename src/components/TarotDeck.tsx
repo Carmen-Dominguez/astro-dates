@@ -211,7 +211,7 @@ const TarotDeck: React.FC<TarotDeckProps> = ({
         ) : (
           // Show only the top card (card back), with a slight fan effect
           <div className="stacked-cards">
-            {deck.slice(0, 5).map((card, i) => (
+            {deck.slice(0, 5).map((card) => (
               <TarotCard
                 key={card.id}
                 {...card}
