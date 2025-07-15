@@ -97,11 +97,11 @@ function TarotReading() {
 
   const getOverallTheme = (cards: TarotCardData[]): string => {
     const themes = {
-      'Major Arcana': 'profound transformation and spiritual growth',
-      'Cups': 'emotional exploration and relationship development',
-      'Wands': 'creative energy and personal power',
-      'Swords': 'mental clarity and intellectual challenges',
-      'Pentacles': 'material abundance and practical matters'
+      'Major Arcana': 'profound transformation and spiritual growth.\n',
+      'Cups': 'emotional exploration and relationship development.\n',
+      'Wands': 'creative energy and personal power.\n',
+      'Swords': 'mental clarity and intellectual challenges.\n',
+      'Pentacles': 'material abundance and practical matters.\n'
     };
     
     const dominantSuit = cards.reduce((acc, card) => {

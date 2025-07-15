@@ -80,14 +80,20 @@ export async function getDetailedTarotReading(question: string, cards: TarotCard
             messages: [
                 {
                     role: "system",
-                    content: `You are a master tarot reader. Provide a detailed, insightful, and empathetic interpretation of tarot spreads. Consider the user's question and the meaning of each card, including if it is reversed. Avoid generic or overly positive statements. Structure the response with an Overall Message, then a section for each card, and a Conclusion.`
+                    content: `You are a master tarot reader. 
+                    Provide a detailed, insightful, and empathetic interpretation of tarot spreads with light humor when the question is light-hearted. 
+                    Consider the user's question and the meaning of each card, including if it is reversed. 
+                    Avoid generic or overly positive statements. 
+                    Structure the response with an Overall Message, then a section for each card, and a Conclusion. 
+                    At the start of the response have a TLDR section that is a summary of the reading in 1-2 sentences. 
+                    The reading must be completed within the max_completion_tokens (400) limit or 350 words.`
                 },
                 {
                     role: "user",
                     content: `Question: ${question}\n\nCards Drawn:\n${cardDescriptions}\n\nPlease provide a detailed tarot reading interpretation.`
                 }
             ],
-            max_tokens: 250
+            max_completion_tokens: 400
         });
 
         return completion.choices[0].message.content || '';
